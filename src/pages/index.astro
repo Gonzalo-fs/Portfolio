@@ -1,11 +1,349 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<div class="background-fx">
+		<div class="orb orb-1"></div>
+		<div class="orb orb-2"></div>
+	</div>
+
+	<section class="hero">
+		<div class="hero-tag">PORTFOLIO 2024 — V.1.0</div>
+		<h1 class="big-name">GONZALO<span class="name-suffix">FS</span></h1>
+		<p class="hero-desc">
+			Diseñador de Productos Digitales y Desarrollador Web centrado en crear experiencias inmersivas e interfaces intuitivas.
+		</p>
+	</section>
+
+	<div class="marquee-container">
+		<div class="marquee-content">
+			<span class="marquee-item">CREATIVE DEVELOPER — </span>
+			<span class="marquee-item">UI/UX DESIGN — </span>
+			<span class="marquee-item">INTERACTION — </span>
+			<span class="marquee-item">CREATIVE DEVELOPER — </span>
+			<span class="marquee-item">UI/UX DESIGN — </span>
+			<span class="marquee-item">INTERACTION — </span>
+		</div>
+	</div>
+
+	<section class="content-section">
+		<h2 class="section-title">PROYECTOS RECIENTES</h2>
+		
+		<div class="projects-grid">
+			<article class="glass-panel project-card">
+				<div class="project-visual"></div>
+				<span class="project-cat">Web Design</span>
+				<h3 class="project-title">Alpha</h3>
+				<p class="project-desc">Diseño de interfaz para plataforma financiera con visualización de datos en tiempo real.</p>
+			</article>
+
+			<article class="glass-panel project-card">
+				<div class="project-visual" style="background: radial-gradient(circle at 50% 0%, rgba(255, 100, 100, 0.1), transparent 70%);"></div>
+				<span class="project-cat">Mobile App</span>
+				<h3 class="project-title">Neon</h3>
+				<p class="project-desc">Aplicación de música social centrada en el descubrimiento de artistas underground.</p>
+			</article>
+
+			<article class="glass-panel project-card">
+				<div class="project-visual" style="background: radial-gradient(circle at 50% 0%, rgba(100, 255, 150, 0.1), transparent 70%);"></div>
+				<span class="project-cat">Branding</span>
+				<h3 class="project-title">Vortex</h3>
+				<p class="project-desc">Identidad visual completa y guías de estilo para startup tecnológica.</p>
+			</article>
+
+			<article class="glass-panel project-card">
+				<div class="project-visual" style="background: radial-gradient(circle at 50% 0%, rgba(200, 100, 255, 0.1), transparent 70%);"></div>
+				<span class="project-cat">Development</span>
+				<h3 class="project-title">Echo</h3>
+				<p class="project-desc">Landing page experimental con animaciones 3D e interacciones fluidas.</p>
+			</article>
+		</div>
+	</section>
+
+	<footer class="footer">
+		<p>© 2024 GONZALO FS. Hecho con ❤️ y código.</p>
+	</footer>
 </Layout>
+
+<style>
+	/* --- 1. CONFIGURACIÓN BASE & COLORES --- */
+	:root {
+		--bg-dark: #02060f;
+		--bg-gradient-1: #0a1529;
+		--bg-gradient-2: #0044ff;
+		--text-main: #ffffff;
+		--text-muted: rgba(255, 255, 255, 0.6);
+		--glass-bg: rgba(255, 255, 255, 0.03);
+		--glass-border: rgba(255, 255, 255, 0.08);
+		--glass-blur: 16px;
+		--accent: #5e9eff;
+	}
+
+	/* --- 2. BACKGROUND ANIMADO --- */
+	.background-fx {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		z-index: -1;
+		background: radial-gradient(circle at 10% 10%, var(--bg-gradient-1), transparent 40%),
+					radial-gradient(circle at 90% 90%, #051021, transparent 40%),
+					#02040a;
+	}
+
+	.orb {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(80px);
+		opacity: 0.4;
+		animation: float 10s infinite ease-in-out alternate;
+	}
+
+	.orb-1 {
+		width: 300px;
+		height: 300px;
+		background: var(--bg-gradient-2);
+		top: 20%;
+		left: -10%;
+	}
+
+	.orb-2 {
+		width: 400px;
+		height: 400px;
+		background: #001a4d;
+		bottom: 10%;
+		right: -10%;
+		animation-delay: -5s;
+	}
+
+	@keyframes float {
+		0% {
+			transform: translate(0, 0) scale(1);
+		}
+		100% {
+			transform: translate(30px, 50px) scale(1.1);
+		}
+	}
+
+	/* --- 3. GLASSMORPHISM --- */
+	.glass-panel {
+		background: var(--glass-bg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
+		border: 1px solid var(--glass-border);
+		border-radius: 20px;
+		box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+	}
+
+	/* --- 4. HERO SECTION --- */
+	.hero {
+		height: 90vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		padding: 2rem;
+		text-align: center;
+	}
+
+	.hero-tag {
+		font-size: 0.9rem;
+		color: var(--accent);
+		margin-bottom: 1rem;
+		font-weight: 600;
+		opacity: 0;
+		animation: fadeIn 1s ease forwards 0.5s;
+	}
+
+	.big-name {
+		font-size: 18vw;
+		line-height: 0.9;
+		background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.5) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		opacity: 0;
+		transform: translateY(50px);
+		animation: slideUpTitle 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+	}
+
+	.name-suffix {
+		font-size: 0.25em;
+		vertical-align: top;
+		position: relative;
+		top: 0.15em;
+		margin-left: 0.05em;
+		opacity: 0.8;
+	}
+
+	.hero-desc {
+		margin-top: 2rem;
+		max-width: 400px;
+		color: var(--text-muted);
+		font-size: 1.1rem;
+		opacity: 0;
+		animation: fadeIn 1s ease forwards 0.8s;
+	}
+
+	@keyframes slideUpTitle {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fadeIn {
+		to {
+			opacity: 1;
+		}
+	}
+
+	/* --- 5. MARQUEE --- */
+	.marquee-container {
+		width: 100%;
+		overflow: hidden;
+		padding: 3rem 0;
+		background: linear-gradient(90deg, transparent, rgba(0, 68, 255, 0.1), transparent);
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		display: flex;
+		position: relative;
+		z-index: 2;
+	}
+
+	.marquee-content {
+		display: flex;
+		gap: 4rem;
+		white-space: nowrap;
+		animation: scrollText 20s linear infinite;
+	}
+
+	.marquee-item {
+		font-family: 'Anton', sans-serif;
+		font-size: 3rem;
+		color: rgba(255, 255, 255, 0.1);
+		-webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+	}
+
+	@keyframes scrollText {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+
+	/* --- 6. PROYECTOS --- */
+	.content-section {
+		padding: 4rem 1.5rem;
+		max-width: 1200px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 2;
+	}
+
+	.section-title {
+		font-size: 2rem;
+		margin-bottom: 3rem;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.section-title::after {
+		content: '';
+		height: 1px;
+		flex-grow: 1;
+		background: linear-gradient(90deg, var(--accent), transparent);
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	.project-card {
+		padding: 2rem;
+		transition: transform 0.3s ease, border-color 0.3s ease;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		min-height: 350px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.project-card:hover {
+		transform: translateY(-5px);
+		border-color: var(--accent);
+	}
+
+	.project-visual {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: radial-gradient(circle at 50% 0%, rgba(94, 158, 255, 0.1), transparent 70%);
+		z-index: -1;
+		transition: opacity 0.3s;
+	}
+
+	.project-cat {
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		color: var(--accent);
+		letter-spacing: 2px;
+		margin-bottom: 0.5rem;
+	}
+
+	.project-title {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.project-desc {
+		color: var(--text-muted);
+		font-size: 0.95rem;
+	}
+
+	.footer {
+		padding: 4rem;
+		text-align: center;
+		color: var(--text-muted);
+		font-size: 0.8rem;
+		position: relative;
+		z-index: 2;
+	}
+
+	/* --- RESPONSIVE --- */
+	@media (min-width: 768px) {
+		.projects-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+		.big-name {
+			font-size: 15vw;
+		}
+		.hero {
+			align-items: flex-start;
+			text-align: left;
+			padding: 4rem;
+		}
+		.hero-desc {
+			max-width: 600px;
+		}
+	}
+</style>
+
+<script>
+	// Duplicar contenido del marquee para que sea infinito
+	const marqueeContent = document.querySelector('.marquee-content');
+	if (marqueeContent) {
+		const items = marqueeContent.innerHTML;
+		marqueeContent.innerHTML = items + items;
+	}
+</script>
