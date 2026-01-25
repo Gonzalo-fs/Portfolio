@@ -9,61 +9,29 @@ import Layout from '../layouts/Layout.astro';
 	</div>
 
 	<section class="hero">
-		<div class="hero-tag">PORTFOLIO 2024 — V.1.0</div>
+		<div class="hero-tag">PORTFOLIO 2026 — V.0.1</div>
 		<h1 class="big-name">GONZALO<span class="name-suffix">FS</span></h1>
 		<p class="hero-desc">
-			Diseñador de Productos Digitales y Desarrollador Web centrado en crear experiencias inmersivas e interfaces intuitivas.
+			Desarrollador Web Full Stack con más de 4 años de experiencia creando soluciones digitales escalables con código limpio y diseños intuitivos.
 		</p>
 	</section>
 
 	<div class="marquee-container">
 		<div class="marquee-content">
-			<span class="marquee-item">CREATIVE DEVELOPER — </span>
-			<span class="marquee-item">UI/UX DESIGN — </span>
-			<span class="marquee-item">INTERACTION — </span>
-			<span class="marquee-item">CREATIVE DEVELOPER — </span>
-			<span class="marquee-item">UI/UX DESIGN — </span>
-			<span class="marquee-item">INTERACTION — </span>
+        <span class="marquee-item">• Laravel •</span>
+        <span class="marquee-item">• Nuxt.js •</span>
+        <span class="marquee-item">• PHP •</span>
+        <span class="marquee-item">• Vue.js •</span>
+        <span class="marquee-item">• Java •</span>
+        <span class="marquee-item">• JQuery •</span>
+        <span class="marquee-item">• SQL •</span>
+        <span class="marquee-item">• Git •</span>
+        <span class="marquee-item">• Docker •</span>
 		</div>
 	</div>
 
-	<section class="content-section">
-		<h2 class="section-title">PROYECTOS RECIENTES</h2>
-		
-		<div class="projects-grid">
-			<article class="glass-panel project-card">
-				<div class="project-visual"></div>
-				<span class="project-cat">Web Design</span>
-				<h3 class="project-title">Alpha</h3>
-				<p class="project-desc">Diseño de interfaz para plataforma financiera con visualización de datos en tiempo real.</p>
-			</article>
 
-			<article class="glass-panel project-card">
-				<div class="project-visual" style="background: radial-gradient(circle at 50% 0%, rgba(255, 100, 100, 0.1), transparent 70%);"></div>
-				<span class="project-cat">Mobile App</span>
-				<h3 class="project-title">Neon</h3>
-				<p class="project-desc">Aplicación de música social centrada en el descubrimiento de artistas underground.</p>
-			</article>
 
-			<article class="glass-panel project-card">
-				<div class="project-visual" style="background: radial-gradient(circle at 50% 0%, rgba(100, 255, 150, 0.1), transparent 70%);"></div>
-				<span class="project-cat">Branding</span>
-				<h3 class="project-title">Vortex</h3>
-				<p class="project-desc">Identidad visual completa y guías de estilo para startup tecnológica.</p>
-			</article>
-
-			<article class="glass-panel project-card">
-				<div class="project-visual" style="background: radial-gradient(circle at 50% 0%, rgba(200, 100, 255, 0.1), transparent 70%);"></div>
-				<span class="project-cat">Development</span>
-				<h3 class="project-title">Echo</h3>
-				<p class="project-desc">Landing page experimental con animaciones 3D e interacciones fluidas.</p>
-			</article>
-		</div>
-	</section>
-
-	<footer class="footer">
-		<p>© 2024 GONZALO FS. Hecho con ❤️ y código.</p>
-	</footer>
 </Layout>
 
 <style>
@@ -159,7 +127,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.big-name {
-		font-size: 18vw;
+		font-size: 24vw;
 		line-height: 0.9;
 		background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.5) 100%);
 		-webkit-background-clip: text;
@@ -311,16 +279,9 @@ import Layout from '../layouts/Layout.astro';
 		font-size: 0.95rem;
 	}
 
-	.footer {
-		padding: 4rem;
-		text-align: center;
-		color: var(--text-muted);
-		font-size: 0.8rem;
-		position: relative;
-		z-index: 2;
-	}
 
-	/* --- RESPONSIVE --- */
+
+	/* --- DESKTOP --- */
 	@media (min-width: 768px) {
 		.projects-grid {
 			grid-template-columns: 1fr 1fr;
@@ -329,8 +290,6 @@ import Layout from '../layouts/Layout.astro';
 			font-size: 15vw;
 		}
 		.hero {
-			align-items: flex-start;
-			text-align: left;
 			padding: 4rem;
 		}
 		.hero-desc {

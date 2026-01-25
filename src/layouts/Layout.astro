@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
 		<title>GONZALO FS | Portfolio</title>
@@ -11,6 +11,9 @@
 	<body>
 		<slot />
 	</body>
+	<footer>
+		<p>© 2026 Gonzalo Fontana Santibáñez.</p>
+	</footer>
 </html>
 
 <style is:global>
@@ -43,5 +46,14 @@
 	a {
 		text-decoration: none;
 		color: inherit;
+	}
+
+	footer {
+		padding: 4rem;
+		text-align: center;
+		color: var(--text-muted);
+		font-size: 0.8rem;
+		position: relative;
+		z-index: 2;
 	}
 </style>
