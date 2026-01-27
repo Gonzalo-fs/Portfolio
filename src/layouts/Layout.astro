@@ -9,7 +9,9 @@
 		<title>GONZALO FS | Portfolio</title>
 	</head>
 	<body>
+
 		<slot />
+
 		<footer>
 			<p>© 2026 Gonzalo Fontana Santibáñez.</p>
 		</footer>
@@ -17,6 +19,18 @@
 </html>
 
 <style is:global>
+	:root {
+		--bg-dark: #02060f;
+		--bg-gradient-1: #0a1529;
+		--bg-gradient-2: #0044ff;
+		--text-main: #ffffff;
+		--text-muted: rgba(255, 255, 255, 0.6);
+		--glass-bg: rgba(255, 255, 255, 0.03);
+		--glass-border: rgba(255, 255, 255, 0.08);
+		--glass-blur: 16px;
+		--accent: #5e9eff;
+	}
+
 	* {
 		box-sizing: border-box;
 		margin: 0;
@@ -30,9 +44,9 @@
 	}
 
 	body {
-		background-color: #02060f;
+		background-color: var(--bg-dark);
 		font-family: 'Manrope', sans-serif;
-		color: #ffffff;
+		color: var(--text-main);
 		overflow-x: hidden;
 		line-height: 1.5;
 	}
@@ -51,7 +65,7 @@
 	footer {
 		padding: 4rem;
 		text-align: center;
-		color: rgba(255, 255, 255, 0.6);
+		color: var(--text-muted);
 		font-size: 0.8rem;
 		position: relative;
 		z-index: 2;

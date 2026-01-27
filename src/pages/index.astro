@@ -6,10 +6,11 @@ import Layout from '../layouts/Layout.astro';
 	<div class="background-fx">
 		<div class="orb orb-1"></div>
 		<div class="orb orb-2"></div>
+		<div class="orb orb-3"></div>
 	</div>
 
 	<section class="hero">
-		<div class="hero-tag">PORTFOLIO 2026 — V.0.1</div>
+		<div class="hero-tag">PORTFOLIO 2026 — ALPHA V.0.1</div>
 		<h1 class="big-name">GONZALO<span class="name-suffix">FS</span></h1>
 		<p class="hero-desc">
 			Desarrollador Web Full Stack con más de 4 años de experiencia creando soluciones digitales escalables con código limpio y diseños intuitivos.
@@ -35,18 +36,6 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-	/* --- 1. CONFIGURACIÓN BASE & COLORES --- */
-	:root {
-		--bg-dark: #02060f;
-		--bg-gradient-1: #0a1529;
-		--bg-gradient-2: #0044ff;
-		--text-main: #ffffff;
-		--text-muted: rgba(255, 255, 255, 0.6);
-		--glass-bg: rgba(255, 255, 255, 0.03);
-		--glass-border: rgba(255, 255, 255, 0.08);
-		--glass-blur: 16px;
-		--accent: #5e9eff;
-	}
 
 	/* --- 2. BACKGROUND ANIMADO --- */
 	.background-fx {
@@ -83,15 +72,28 @@ import Layout from '../layouts/Layout.astro';
 		background: #001a4d;
 		bottom: 10%;
 		right: -10%;
-		animation-delay: -5s;
+		animation: float 10s infinite ease-in-out alternate -5s;
+	}
+
+	.orb-3 {
+		width: 250px;
+		height: 250px;
+		background: #0044ff;
+		top: -100px;
+		right: -100px;
+		animation: float 10s infinite ease-in-out alternate -2.5s;
 	}
 
 	@keyframes float {
 		0% {
 			transform: translate(0, 0) scale(1);
+			opacity: 0.4;
+			filter: blur(80px) brightness(0.8);
 		}
 		100% {
 			transform: translate(30px, 50px) scale(1.1);
+			opacity: 0.6;
+			filter: blur(80px) brightness(1);
 		}
 	}
 
@@ -128,7 +130,7 @@ import Layout from '../layouts/Layout.astro';
 
 	.big-name {
 		font-size: 24vw;
-		line-height: 0.9;
+		line-height: 1;
 		background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.5) 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
@@ -144,6 +146,9 @@ import Layout from '../layouts/Layout.astro';
 		top: 0.15em;
 		margin-left: 0.05em;
 		opacity: 0.8;
+		background: white;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
 	.hero-desc {
