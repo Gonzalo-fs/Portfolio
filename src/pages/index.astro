@@ -1,5 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { getTranslation, defaultLanguage } from "../i18n";
+
+const currentLanguage = (Astro.cookies.get("language")?.value ||
+	defaultLanguage) as "es" | "en";
+const t = getTranslation(currentLanguage);
 ---
 
 <Layout>
@@ -18,77 +23,51 @@ import Layout from '../layouts/Layout.astro';
 	</div>
 
 	<section class="hero">
-		<div class="hero-tag">PORTFOLIO 2026 — ALPHA V.0.1</div>
-		<h1 class="big-name">GONZALO<span class="name-suffix">FS</span></h1>
+		<div class="hero-tag">{t.hero.tag}</div>
+		<h1 class="big-name">
+			{t.hero.title}<span class="name-suffix">{t.hero.titleSuffix}</span>
+		</h1>
 		<p class="hero-desc">
-			Desarrollador Web Full Stack con más de 4 años de experiencia creando soluciones digitales escalables con código limpio y diseños intuitivos.
+			{t.hero.description}
 		</p>
 	</section>
 
 	<div class="marquee-container">
 		<div class="marquee-content">
-        <span class="marquee-item">• Laravel •</span>
-        <span class="marquee-item">• Nuxt.js •</span>
-        <span class="marquee-item">• PHP •</span>
-        <span class="marquee-item">• Vue.js •</span>
-        <span class="marquee-item">• Java •</span>
-        <span class="marquee-item">• JQuery •</span>
-        <span class="marquee-item">• SQL •</span>
-        <span class="marquee-item">• Git •</span>
-        <span class="marquee-item">• Docker •</span>
+			<span class="marquee-item">• Laravel •</span>
+			<span class="marquee-item">• Nuxt.js •</span>
+			<span class="marquee-item">• PHP •</span>
+			<span class="marquee-item">• Vue.js •</span>
+			<span class="marquee-item">• Java •</span>
+			<span class="marquee-item">• JQuery •</span>
+			<span class="marquee-item">• SQL •</span>
+			<span class="marquee-item">• Git •</span>
+			<span class="marquee-item">• Docker •</span>
 		</div>
 	</div>
 
 	<section class="content-section">
-		<h2 class="section-title">EXPERIENCIA & EDUCACIÓN</h2>
-		
+		<h2 class="section-title">{t.experience.title}</h2>
+
 		<div class="timeline">
-			<div class="timeline-item">
-				<div class="timeline-marker"></div>
-				<div class="timeline-content">
-					<div class="timeline-period">2022 - Presente</div>
-					<h3 class="timeline-title">Desarrollador Full Stack</h3>
-					<p class="timeline-company">Freelance</p>
-					<p class="timeline-desc">Desarrollo de aplicaciones web escalables con Laravel, Vue.js y Nuxt.js. Implementación de APIs REST y bases de datos MySQL/PostgreSQL.</p>
-				</div>
-			</div>
-
-			<div class="timeline-item">
-				<div class="timeline-marker"></div>
-				<div class="timeline-content">
-					<div class="timeline-period">2021 - 2022</div>
-					<h3 class="timeline-title">Desarrollador Web</h3>
-					<p class="timeline-company">Empresa Tech</p>
-					<p class="timeline-desc">Desarrollo frontend con Vue.js y JavaScript. Mantenimiento y optimización de aplicaciones web existentes.</p>
-				</div>
-			</div>
-
-			<div class="timeline-item">
-				<div class="timeline-marker"></div>
-				<div class="timeline-content">
-					<div class="timeline-period">2020 - 2021</div>
-					<h3 class="timeline-title">Junior Developer</h3>
-					<p class="timeline-company">StartUp Digital</p>
-					<p class="timeline-desc">Primeras experiencias en desarrollo web con HTML, CSS y JavaScript. Contribución a proyectos pequeños y medianos.</p>
-				</div>
-			</div>
-
-			<div class="timeline-item">
-				<div class="timeline-marker"></div>
-				<div class="timeline-content">
-					<div class="timeline-period">2019 - 2020</div>
-					<h3 class="timeline-title">Ingeniería en Informática</h3>
-					<p class="timeline-company">Universidad</p>
-					<p class="timeline-desc">Formación superior en programación, bases de datos, y desarrollo de software. Especialización en desarrollo web.</p>
-				</div>
-			</div>
+			{
+				t.experience.items.map((item: any) => (
+					<div class="timeline-item">
+						<div class="timeline-marker" />
+						<div class="timeline-content">
+							<div class="timeline-period">{item.period}</div>
+							<h3 class="timeline-title">{item.role}</h3>
+							<p class="timeline-company">{item.company}</p>
+							<p class="timeline-desc">{item.desc}</p>
+						</div>
+					</div>
+				))
+			}
 		</div>
 	</section>
-
 </Layout>
 
 <style>
-
 	/* --- 1. CUSTOM CURSOR --- */
 	body {
 		cursor: none;
@@ -102,9 +81,10 @@ import Layout from '../layouts/Layout.astro';
 		border-radius: 50%;
 		pointer-events: none;
 		z-index: 10000;
-		mix-blend-mode: multiply;
+		mix-blend-mode: difference;
 		box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 		transform: translate(-50%, -50%);
+		transition: opacity 0.3s ease;
 	}
 
 	/* --- 2. CURSOR AURA EFFECT --- */
@@ -114,31 +94,51 @@ import Layout from '../layouts/Layout.astro';
 		border-radius: 50%;
 		mix-blend-mode: screen;
 		filter: blur(60px) brightness(1.5) contrast(1.2);
-		animation: pulse 6s infinite alternate;
 		z-index: 0;
 	}
 
 	.layer-1 {
 		width: 300px;
 		height: 300px;
-		background: radial-gradient(circle, #003ada 0%, #051021 40%, transparent 70%);
+		background: radial-gradient(
+			circle,
+			#003ada 0%,
+			#051021 40%,
+			transparent 70%
+		);
 	}
 
 	.layer-2 {
 		width: 200px;
 		height: 200px;
-		background: radial-gradient(circle, #0044ff 0%, #051021 40%, transparent 70%);
+		background: radial-gradient(
+			circle,
+			#0044ff 0%,
+			#051021 40%,
+			transparent 70%
+		);
 	}
 
 	.layer-3 {
 		width: 120px;
 		height: 120px;
-		background: radial-gradient(circle, #0044ff 0%, #051021 40%, transparent 70%);
+		background: radial-gradient(
+			circle,
+			#0044ff 0%,
+			#051021 40%,
+			transparent 70%
+		);
 	}
 
 	@keyframes pulse {
-		0% { scale: 1; opacity: 0.6; }
-		100% { scale: 1.2; opacity: 0.9; }
+		0% {
+			scale: 1;
+			opacity: 0.6;
+		}
+		100% {
+			scale: 1.2;
+			opacity: 0.9;
+		}
 	}
 
 	/* --- 2. BACKGROUND ANIMADO --- */
@@ -149,9 +149,14 @@ import Layout from '../layouts/Layout.astro';
 		width: 100%;
 		height: 100vh;
 		z-index: -1;
-		background: radial-gradient(circle at 10% 10%, var(--bg-gradient-1), transparent 40%),
-					radial-gradient(circle at 90% 90%, #051021, transparent 40%),
-					#02040a;
+		background:
+			radial-gradient(
+				circle at 10% 10%,
+				var(--bg-gradient-1),
+				transparent 40%
+			),
+			radial-gradient(circle at 90% 90%, #051021, transparent 40%),
+			#02040a;
 	}
 
 	.orb {
@@ -235,7 +240,11 @@ import Layout from '../layouts/Layout.astro';
 	.big-name {
 		font-size: 24vw;
 		line-height: 1;
-		background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.5) 100%);
+		background: linear-gradient(
+			180deg,
+			#fff 0%,
+			rgba(255, 255, 255, 0.5) 100%
+		);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		opacity: 0;
@@ -282,7 +291,12 @@ import Layout from '../layouts/Layout.astro';
 		width: 100%;
 		overflow: hidden;
 		padding: 3rem 0;
-		background: linear-gradient(90deg, transparent, rgba(0, 68, 255, 0.1), transparent);
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(0, 68, 255, 0.1),
+			transparent
+		);
 		border-top: 1px solid rgba(255, 255, 255, 0.05);
 		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 		display: flex;
@@ -298,7 +312,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.marquee-item {
-		font-family: 'Anton', sans-serif;
+		font-family: "Anton", sans-serif;
 		font-size: 3rem;
 		color: rgba(255, 255, 255, 0.1);
 		-webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
@@ -331,7 +345,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.section-title::after {
-		content: '';
+		content: "";
 		height: 1px;
 		flex-grow: 1;
 		background: linear-gradient(90deg, var(--accent), transparent);
@@ -345,7 +359,9 @@ import Layout from '../layouts/Layout.astro';
 
 	.project-card {
 		padding: 2rem;
-		transition: transform 0.3s ease, border-color 0.3s ease;
+		transition:
+			transform 0.3s ease,
+			border-color 0.3s ease;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -365,7 +381,11 @@ import Layout from '../layouts/Layout.astro';
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: radial-gradient(circle at 50% 0%, rgba(94, 158, 255, 0.1), transparent 70%);
+		background: radial-gradient(
+			circle at 50% 0%,
+			rgba(94, 158, 255, 0.1),
+			transparent 70%
+		);
 		z-index: -1;
 		transition: opacity 0.3s;
 	}
@@ -395,7 +415,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.timeline::before {
-		content: '';
+		content: "";
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
@@ -417,7 +437,7 @@ import Layout from '../layouts/Layout.astro';
 
 	.timeline-item:nth-child(even) {
 		flex-direction: row-reverse;
-		justify-content: flex-end;
+		justify-content: flex-start;
 	}
 
 	.timeline-marker {
@@ -485,8 +505,6 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1.6;
 	}
 
-
-
 	/* --- DESKTOP --- */
 	@media (min-width: 768px) {
 		.projects-grid {
@@ -528,91 +546,114 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
 	// Duplicar contenido del marquee para que sea infinito
-	const marqueeContent = document.querySelector('.marquee-content');
+	const marqueeContent = document.querySelector(".marquee-content");
 	if (marqueeContent) {
 		const items = marqueeContent.innerHTML;
 		marqueeContent.innerHTML = items + items;
 	}
 
 	// Custom Cursor
-	const customCursor = document.getElementById('custom-cursor');
-	let cursorX = 0, cursorY = 0;
+	const customCursor = document.getElementById("custom-cursor");
+	let cursorX = 0,
+		cursorY = 0;
 
-	document.addEventListener('mouseleave', () => {
+	document.addEventListener("mouseleave", () => {
 		if (customCursor) {
-			customCursor.style.opacity = '0';
+			customCursor.style.opacity = "0";
 		}
 	});
 
-	document.addEventListener('mouseenter', () => {
+	document.addEventListener("mouseenter", () => {
 		if (customCursor) {
-			customCursor.style.opacity = '1';
+			customCursor.style.opacity = "1";
 		}
 	});
 
 	// Cursor Aura Effect
 	function initAuraEffect() {
-		const auraFast = document.getElementById('aura-fast') as HTMLElement | null;
-		const auraMedium = document.getElementById('aura-medium') as HTMLElement | null;
-		const auraSlow = document.getElementById('aura-slow') as HTMLElement | null;
+		const auraFast = document.getElementById(
+			"aura-fast",
+		) as HTMLElement | null;
+		const auraMedium = document.getElementById(
+			"aura-medium",
+		) as HTMLElement | null;
+		const auraSlow = document.getElementById(
+			"aura-slow",
+		) as HTMLElement | null;
 
 		if (!auraFast || !auraMedium || !auraSlow) return;
 
-		let mouseX = 0, mouseY = 0;
+		let mouseX = 0,
+			mouseY = 0;
 
 		// POSICIONES E INERCIAS
-		let fastX = 0, fastY = 0;
+		let fastX = 0,
+			fastY = 0;
 		const fastSpeed = 0.2;
 
-		let mediumX = 0, mediumY = 0;
+		let mediumX = 0,
+			mediumY = 0;
 		const mediumSpeed = 0.14;
 
-		let slowX = 0, slowY = 0;
+		let slowX = 0,
+			slowY = 0;
 		const slowSpeed = 0.1;
 
-		let lastTime = Date.now();
+		let lastTime = performance.now();
 
-		document.addEventListener('mousemove', (e) => {
+		document.addEventListener("mousemove", (e) => {
 			mouseX = e.clientX;
 			mouseY = e.clientY;
 			cursorX = e.clientX;
 			cursorY = e.clientY;
-			
+
 			if (customCursor) {
 				customCursor.style.left = `${cursorX}px`;
 				customCursor.style.top = `${cursorY}px`;
 			}
 		});
 
-		function animate() {
-			const now = Date.now();
-			const deltaTime = (now - lastTime) / 16; // normalizar a 60fps (16ms por frame)
-			lastTime = now;
+		function animate(currentTime: number) {
+			// requestAnimationFrame pasa por defecto el tiempo actual de alta precisión
+			if (!currentTime) currentTime = performance.now();
+
+			// Normalizamos a 60fps (~16.666ms por frame)
+			let deltaTime = (currentTime - lastTime) / 16.666;
+
+			// Evitamos saltos gigantes si el usuario cambia de pestaña (el navegador pausa rAF)
+			if (deltaTime > 2) deltaTime = 2;
+
+			lastTime = currentTime;
 
 			// Lógica de seguimiento (LERP) basada en tiempo
 			fastX += (mouseX - fastX) * fastSpeed * deltaTime;
 			fastY += (mouseY - fastY) * fastSpeed * deltaTime;
-			
+
 			mediumX += (mouseX - mediumX) * mediumSpeed * deltaTime;
 			mediumY += (mouseY - mediumY) * mediumSpeed * deltaTime;
-			
+
 			slowX += (mouseX - slowX) * slowSpeed * deltaTime;
 			slowY += (mouseY - slowY) * slowSpeed * deltaTime;
-			
-			// Aplicar transformación con translate para GPU acceleration
-			auraFast!.style.transform = `translate(${fastX}px, ${fastY}px)`;
-			auraMedium!.style.transform = `translate(${mediumX}px, ${mediumY}px)`;
-			auraSlow!.style.transform = `translate(${slowX}px, ${slowY}px)`;
-			
+
+			// Aplicar transformación con translate para GPU acceleration + Centrado
+			// Centramos restando la mitad del tamaño de cada aura (definidos en CSS)
+			// Layer 1: 300px -> 150px offset
+			// Layer 2: 200px -> 100px offset
+			// Layer 3: 120px -> 60px offset
+
+			auraFast!.style.transform = `translate(${fastX - 150}px, ${fastY - 150}px)`;
+			auraMedium!.style.transform = `translate(${mediumX - 100}px, ${mediumY - 100}px)`;
+			auraSlow!.style.transform = `translate(${slowX - 60}px, ${slowY - 60}px)`;
+
 			requestAnimationFrame(animate);
 		}
 
-		animate();
+		requestAnimationFrame(animate);
 	}
 
 	// Ejecutar cuando el DOM esté listo
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initAuraEffect);
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initAuraEffect);
 	} else {
 		initAuraEffect();
 	}

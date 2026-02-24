@@ -1,0 +1,56 @@
+Experiencia laboral
+tugesto by
+2021 - Actualidad
+He desempeñado funciones de:
+Encargado de Onboarding.
+Programador full-stack.
+Product Owner de varios proyectos.
+Servinco (Prácticas)
+2018
+Mantenimiento de servidores y equipos.
+Asistencia como técnico dando soporte
+y atención telemática.
+Gonzalo Fontana Santibáñez
+Desarrollador Web
+¡Hola! Soy Gonzalo, un joven desarrollador Full Stack con
++4 años de experiencia en el sector y con muchas ganas
+de seguir creciendo. Me gusta resolver rompecabezas y
+aportar ideas desde otros puntos de vista.
+Formación académica
+Desarrollo de aplicaciones web
+Grado superior
+IES Camp de Morvedre
+2018 - 2021
+Sistemas microinformáticos y redes
+Competencias
+Experto en:
+Inglés (C1), diseño web, SCRUM,
+kanban, código limpio, API REST,
+CMS (Prestashop, Wordpress), IA
+Conocimientos en:
+Ciberseguridad, despliegue en
+servidor, SEO, marketing y RRSS
+Para más información:
+Escanea este QR
+para visitar mi
+portfolio web
+IES Camp de Morvedre
+2016 - 2018
+Fundamentos de marketing digital
+IAB Europe, Google skillshop
+2020
+Ciberseguridad en el teletrabajo
+INCIBE, Google skillshop
+2020
+Cisco networking essentials
+IES Camp de Morvedre, Cisco
+2019
+Tecnologías:
+Laravel, PHP, Java, Spring Boot, SQL
+Vue.js, Nuxt.js, jQuery, JS, HTML, CSS
+Git, Docker, Jira, Copilot, GPT-codex
+He desarrollado APIs, el rediseño de la
+página web, funciones del asistente IA, y
+otras muchas funcionalidades como
+detección automática e importación de
+nóminas, validación de ficheros, etc.

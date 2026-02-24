@@ -1,5 +1,13 @@
+---
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import { defaultLanguage } from '../i18n';
+
+const currentLanguage = Astro.cookies.get('language')?.value || defaultLanguage;
+Astro.cookies.set('language', currentLanguage, { maxAge: 31536000 });
+---
+
 <!doctype html>
-<html lang="es">
+<html lang={currentLanguage}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +17,7 @@
 		<title>GONZALO FS | Portfolio</title>
 	</head>
 	<body>
-
+		<LanguageSwitcher currentLanguage={currentLanguage} />
 		<slot />
 
 		<footer>
