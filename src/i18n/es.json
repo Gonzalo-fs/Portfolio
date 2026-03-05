@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "tag": "PORTFOLIO 2026 — ALPHA V.0.2",
+    "title": "GONZALO",
+    "titleSuffix": "FS",
+    "description": "Desarrollador Web Full Stack con más de 4 años de experiencia creando soluciones digitales escalables con código limpio y diseños intuitivos."
+  },
+  "experience": {
+    "title": "EXPERIENCIA & EDUCACIÓN",
+    "items": [
+      {
+        "period": "2021 - Actualidad",
+        "role": "Programador Full-stack y Product Owner",
+        "company": "tugesto",
+        "desc": "Encargado de Onboarding, programador full-stack y Product Owner de varios proyectos. Desarrollo de APIs, rediseño de la web, asistente IA, detección automática de nóminas y validación de ficheros."
+      },
+      {
+        "period": "2018 - 2021",
+        "role": "Desarrollo de Aplicaciones Web (Grado Superior)",
+        "company": "IES Camp de Morvedre",
+        "desc": "Formación superior en desarrollo web profesional, metodologías ágiles y manejo de bases de datos."
+      },
+      {
+        "period": "2018",
+        "role": "Técnico de Soporte (Prácticas)",
+        "company": "Servinco",
+        "desc": "Mantenimiento de servidores y equipos informáticos. Asistencia como técnico dando soporte y atención telemática."
+      },
+      {
+        "period": "2016 - 2018",
+        "role": "Sistemas Microinformáticos y Redes",
+        "company": "IES Camp de Morvedre",
+        "desc": "Formación general en sistemas microinformáticos, hardware, y redes locales."
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 Gonzalo Fontana Santibáñez."
+  }
+}

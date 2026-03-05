@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tag": "PORTFOLIO 2026 — ALPHA V.0.2",
+    "title": "GONZALO",
+    "titleSuffix": "FS",
+    "description": "Full Stack Web Developer with over 4 years of experience creating scalable digital solutions with clean code and intuitive designs."
+  },
+  "experience": {
+    "title": "EXPERIENCE & EDUCATION",
+    "items": [
+      {
+        "period": "2021 - Present",
+        "role": "Full-stack Developer & Product Owner",
+        "company": "tugesto",
+        "desc": "Onboarding Manager, full-stack programmer, and Product Owner of several projects. API development, web redesign, AI assistant features, automatic payroll detection, and file validation."
+      },
+      {
+        "period": "2018 - 2021",
+        "role": "Web Application Development (Higher Degree)",
+        "company": "IES Camp de Morvedre",
+        "desc": "Higher education in professional web development, agile methodologies, and database management."
+      },
+      {
+        "period": "2018",
+        "role": "Support Technician (Internship)",
+        "company": "Servinco",
+        "desc": "Server and equipment maintenance. Technical assistance providing remote support and telematics."
+      },
+      {
+        "period": "2016 - 2018",
+        "role": "Microcomputer Systems and Networks",
+        "company": "IES Camp de Morvedre",
+        "desc": "General training in microcomputer systems, hardware, and local networks."
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 Gonzalo Fontana Santibáñez."
+  }
+}
