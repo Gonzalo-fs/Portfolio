@@ -23,6 +23,5 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-
-#Ignore vscode AI rules
-.github\instructions\codacy.instructions.md
+# wrangler (cloudflare) development folder
+.wrangler/
