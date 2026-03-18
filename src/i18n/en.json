@@ -6,7 +6,7 @@
     "contact": "Contact"
   },
   "hero": {
-    "tag": "PORTFOLIO 2026 — ALPHA V.0.3",
+    "tag": "PORTFOLIO 2026 — ALPHA V.0.4",
     "title": "GONZALO",
     "titleSuffix": "FS",
     "description": "Full Stack Web Developer with over 4 years of experience creating scalable digital solutions with clean code and intuitive designs."
@@ -38,6 +38,20 @@
         "company": "IES Camp de Morvedre",
         "desc": "General training in microcomputer systems, hardware, and local networks."
       }
+    ]
+  },
+  "about": {
+    "title": "ABOUT ME",
+    "description": "I'm a Full Stack Developer who thrives at the intersection of technology and strategy. With 4+ years of experience building scalable web solutions, I've led the AI integration initiative at my company — pioneering SDD (Spec-Driven Development) workflows that transformed how our team ships software. I navigated the acquisition of our company by Visma, adapting quickly to enterprise-scale processes while keeping the agility of a startup mindset. As the Onboarding Manager, I shape how new team members grow into the company. I'm a firm believer in clean code, best practices, and standards — because great software starts with great foundations. Beyond the keyboard, I'm driven by curiosity: puzzles, LEGO, video games, and any challenge that sparks creative thinking. I lead projects, I solve problems, and I get things done.",
+    "highlights": [
+      "AI Integration Leader",
+      "Onboarding Manager",
+      "Clean Code Advocate",
+      "Creative Problem Solver",
+      "Team Leader",
+      "Spec-Driven Development",
+      "Standards & Best Practices",
+      "Visma Acquisition Veteran"
     ]
   },
   "footer": {
