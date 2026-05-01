@@ -4,16 +4,21 @@ interface Skill {
 	isExpert?: boolean;
 }
 
+interface SkillSubcategory {
+	title?: string;
+	skills: Skill[];
+}
+
 interface Props {
 	title: string;
 	intro: string;
 	legendText: string;
 	techStackTitle: string;
 	techStackDesc: string;
-	techStack: Skill[];
+	techStackSubcategories: SkillSubcategory[];
 	knowledgeTitle: string;
 	knowledgeDesc: string;
-	knowledge: Skill[];
+	knowledgeSubcategories: SkillSubcategory[];
 }
 
 const {
@@ -22,10 +27,10 @@ const {
 	legendText,
 	techStackTitle,
 	techStackDesc,
-	techStack,
+	techStackSubcategories,
 	knowledgeTitle,
 	knowledgeDesc,
-	knowledge
+	knowledgeSubcategories
 } = Astro.props;
 ---
 
@@ -54,14 +59,21 @@ const {
 				<h3>{techStackTitle}</h3>
 			</div>
 			<p class="card-desc">{techStackDesc}</p>
-			<div class="tags-container">
-				{techStack.map(skill => (
-					<span class={`tag ${skill.isExpert ? 'expert-tag' : ''}`}>
-						{skill.name}
-						{skill.isExpert && (
-							<svg class="expert-star-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-						)}
-					</span>
+			<div class="subcategories-wrapper">
+				{techStackSubcategories.map(subcat => (
+					<div class="subcategory">
+						{subcat.title && <h4 class="subcategory-title">{subcat.title}</h4>}
+						<div class="tags-container">
+							{subcat.skills.map(skill => (
+								<span class={`tag ${skill.isExpert ? 'expert-tag' : ''}`}>
+									{skill.name}
+									{skill.isExpert && (
+										<svg class="expert-star-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+									)}
+								</span>
+							))}
+						</div>
+					</div>
 				))}
 			</div>
 		</div>
@@ -75,14 +87,21 @@ const {
 				<h3>{knowledgeTitle}</h3>
 			</div>
 			<p class="card-desc">{knowledgeDesc}</p>
-			<div class="tags-container">
-				{knowledge.map(skill => (
-					<span class={`tag ${skill.isExpert ? 'expert-tag' : ''}`}>
-						{skill.name}
-						{skill.isExpert && (
-							<svg class="expert-star-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-						)}
-					</span>
+			<div class="subcategories-wrapper">
+				{knowledgeSubcategories.map(subcat => (
+					<div class="subcategory">
+						{subcat.title && <h4 class="subcategory-title">{subcat.title}</h4>}
+						<div class="tags-container">
+							{subcat.skills.map(skill => (
+								<span class={`tag ${skill.isExpert ? 'expert-tag' : ''}`}>
+									{skill.name}
+									{skill.isExpert && (
+										<svg class="expert-star-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+									)}
+								</span>
+							))}
+						</div>
+					</div>
 				))}
 			</div>
 		</div>
@@ -219,6 +238,22 @@ const {
 		margin-bottom: 1.5rem;
 		padding-bottom: 1.5rem;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	.subcategories-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.subcategory-title {
+		font-size: 0.95rem;
+		color: var(--text-main);
+		margin: 0 0 0.8rem 0;
+		opacity: 0.9;
+		font-weight: 600;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
 	}
 
 	.tags-container {

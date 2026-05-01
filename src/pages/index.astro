@@ -63,39 +63,79 @@ import Skills from "../components/Skills.astro";
 		legendText="Areas of deep expertise"
 		techStackTitle="Tech Stack"
 		techStackDesc="Main languages, frameworks, and tools."
-		techStack={[
-			{ name: "Laravel" },
-			{ name: "PHP" },
-			{ name: "Java" },
-			{ name: "Spring Boot" },
-			{ name: "SQL" },
-			{ name: "Vue.js" },
-			{ name: "Nuxt.js" },
-			{ name: "jQuery" },
-			{ name: "JS" },
-			{ name: "HTML" },
-			{ name: "CSS" },
-			{ name: "Git" },
-			{ name: "Docker" },
-			{ name: "Jira" },
-			{ name: "Copilot" },
-			{ name: "GPT-codex" },
-			{ name: "REST API", isExpert: true },
-			{ name: "CMS (Prestashop, Wordpress)", isExpert: true }
+		techStackSubcategories={[
+			{
+				title: "Backend",
+				skills: [
+					{ name: "Laravel" },
+					{ name: "PHP" },
+					{ name: "Java" },
+					{ name: "Spring Boot" },
+					{ name: "SQL" },
+					{ name: "REST API", isExpert: true }
+				]
+			},
+			{
+				title: "Frontend",
+				skills: [
+					{ name: "Vue.js" },
+					{ name: "Nuxt.js" },
+					{ name: "jQuery" },
+					{ name: "JS" },
+					{ name: "HTML" },
+					{ name: "CSS" }
+				]
+			},
+			{
+				title: "Tools & Workflows",
+				skills: [
+					{ name: "Git" },
+					{ name: "Docker" },
+					{ name: "Jira" },
+					{ name: "CMS (Prestashop, Wordpress)", isExpert: true }
+				]
+			},
+			{
+				title: "AI Tools",
+				skills: [
+					{ name: "Copilot" },
+					{ name: "GPT-codex" }
+				]
+			}
 		]}
 		knowledgeTitle="Knowledge & Methodologies"
 		knowledgeDesc="Complementary and transversal skills."
-		knowledge={[
-			{ name: "English (C1)", isExpert: true },
-			{ name: "Web Design", isExpert: true },
-			{ name: "SCRUM & Kanban", isExpert: true },
-			{ name: "Clean Code", isExpert: true },
-			{ name: "Artificial Intelligence (AI)", isExpert: true },
-			{ name: "Cybersecurity" },
-			{ name: "Server Deployment" },
-			{ name: "SEO" },
-			{ name: "Digital Marketing" },
-			{ name: "Social Media" }
+		knowledgeSubcategories={[
+			{
+				title: "Methodologies & Core",
+				skills: [
+					{ name: "SCRUM & Kanban", isExpert: true },
+					{ name: "Clean Code", isExpert: true }
+				]
+			},
+			{
+				title: "Design & Languages",
+				skills: [
+					{ name: "Web Design", isExpert: true },
+					{ name: "English (C1)", isExpert: true }
+				]
+			},
+			{
+				title: "Systems & Security",
+				skills: [
+					{ name: "Artificial Intelligence (AI)", isExpert: true },
+					{ name: "Cybersecurity" },
+					{ name: "Server Deployment" }
+				]
+			},
+			{
+				title: "Marketing",
+				skills: [
+					{ name: "SEO" },
+					{ name: "Digital Marketing" },
+					{ name: "Social Media" }
+				]
+			}
 		]}
 	/>
 </Layout>

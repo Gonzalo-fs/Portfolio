@@ -63,39 +63,79 @@ import Skills from "../../components/Skills.astro";
 		legendText="Áreas donde aporto un valor consolidado"
 		techStackTitle="Stack Tecnológico"
 		techStackDesc="Lenguajes, frameworks y herramientas principales."
-		techStack={[
-			{ name: "Laravel" },
-			{ name: "PHP" },
-			{ name: "Java" },
-			{ name: "Spring Boot" },
-			{ name: "SQL" },
-			{ name: "Vue.js" },
-			{ name: "Nuxt.js" },
-			{ name: "jQuery" },
-			{ name: "JS" },
-			{ name: "HTML" },
-			{ name: "CSS" },
-			{ name: "Git" },
-			{ name: "Docker" },
-			{ name: "Jira" },
-			{ name: "Copilot" },
-			{ name: "GPT-codex" },
-			{ name: "API REST", isExpert: true },
-			{ name: "CMS (Prestashop, Wordpress)", isExpert: true }
+		techStackSubcategories={[
+			{
+				title: "Backend",
+				skills: [
+					{ name: "Laravel" },
+					{ name: "PHP" },
+					{ name: "Java" },
+					{ name: "Spring Boot" },
+					{ name: "SQL" },
+					{ name: "API REST", isExpert: true }
+				]
+			},
+			{
+				title: "Frontend",
+				skills: [
+					{ name: "Vue.js" },
+					{ name: "Nuxt.js" },
+					{ name: "jQuery" },
+					{ name: "JS" },
+					{ name: "HTML" },
+					{ name: "CSS" }
+				]
+			},
+			{
+				title: "Herramientas y Flujos",
+				skills: [
+					{ name: "Git" },
+					{ name: "Docker" },
+					{ name: "Jira" },
+					{ name: "CMS (Prestashop, Wordpress)", isExpert: true }
+				]
+			},
+			{
+				title: "Herramientas IA",
+				skills: [
+					{ name: "Copilot" },
+					{ name: "GPT-codex" }
+				]
+			}
 		]}
 		knowledgeTitle="Conocimientos y Metodologías"
 		knowledgeDesc="Habilidades complementarias y transversales."
-		knowledge={[
-			{ name: "Inglés (C1)", isExpert: true },
-			{ name: "Diseño Web", isExpert: true },
-			{ name: "SCRUM & Kanban", isExpert: true },
-			{ name: "Código Limpio (Clean Code)", isExpert: true },
-			{ name: "Inteligencia Artificial (IA)", isExpert: true },
-			{ name: "Ciberseguridad" },
-			{ name: "Despliegue en servidor" },
-			{ name: "SEO" },
-			{ name: "Marketing digital" },
-			{ name: "RRSS" }
+		knowledgeSubcategories={[
+			{
+				title: "Metodologías",
+				skills: [
+					{ name: "SCRUM & Kanban", isExpert: true },
+					{ name: "Código Limpio (Clean Code)", isExpert: true }
+				]
+			},
+			{
+				title: "Diseño e Idiomas",
+				skills: [
+					{ name: "Diseño Web", isExpert: true },
+					{ name: "Inglés (C1)", isExpert: true }
+				]
+			},
+			{
+				title: "Sistemas y Seguridad",
+				skills: [
+					{ name: "Inteligencia Artificial (IA)", isExpert: true },
+					{ name: "Ciberseguridad" },
+					{ name: "Despliegue en servidor" }
+				]
+			},
+			{
+				title: "Marketing",
+				skills: [
+					{ name: "SEO" },
+					{ name: "Marketing digital" },
+					{ name: "RRSS" }
+				]
+			}
 		]}
 	/>
 </Layout>
