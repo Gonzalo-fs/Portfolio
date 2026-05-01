@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import fotoCV from "../assets/FotoCVportrait.avif";
 
 interface Props {
@@ -18,8 +17,8 @@ const { title, description, highlights, photoAlt } = Astro.props;
 			<div class="photo-glow"></div>
 			<div class="photo-ring"></div>
 			<div class="photo-inner">
-				<Image
-					src={fotoCV}
+				<img
+					src={fotoCV.src}
 					alt={photoAlt}
 					class="about-photo"
 					width={800}
