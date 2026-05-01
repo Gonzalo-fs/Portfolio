@@ -5,6 +5,7 @@ import Hero from "../../components/Hero.astro";
 import Marquee from "../../components/Marquee.astro";
 import AboutSection from "../../components/AboutSection.astro";
 import Timeline from "../../components/Timeline.astro";
+import Skills from "../../components/Skills.astro";
 ---
 
 <Layout currentLanguage="es">
@@ -53,6 +54,48 @@ import Timeline from "../../components/Timeline.astro";
 				company: "IES Camp de Morvedre",
 				desc: "Formación general en sistemas microinformáticos, hardware, y redes locales.",
 			},
+		]}
+	/>
+
+	<Skills 
+		title="HABILIDADES & EXPERIENCIA"
+		intro="Como desarrollador joven y proactivo, combino mi instinto resolutivo con unas ganas insaciables de seguir creciendo. Me destaco por mi capacidad para resolver rompecabezas arquitectónicos y aportar ideas desde diferentes perspectivas, buscando siempre la excelencia y el código limpio."
+		legendText="Áreas donde aporto un valor consolidado"
+		techStackTitle="Stack Tecnológico"
+		techStackDesc="Lenguajes, frameworks y herramientas principales."
+		techStack={[
+			{ name: "Laravel" },
+			{ name: "PHP" },
+			{ name: "Java" },
+			{ name: "Spring Boot" },
+			{ name: "SQL" },
+			{ name: "Vue.js" },
+			{ name: "Nuxt.js" },
+			{ name: "jQuery" },
+			{ name: "JS" },
+			{ name: "HTML" },
+			{ name: "CSS" },
+			{ name: "Git" },
+			{ name: "Docker" },
+			{ name: "Jira" },
+			{ name: "Copilot" },
+			{ name: "GPT-codex" },
+			{ name: "API REST", isExpert: true },
+			{ name: "CMS (Prestashop, Wordpress)", isExpert: true }
+		]}
+		knowledgeTitle="Conocimientos y Metodologías"
+		knowledgeDesc="Habilidades complementarias y transversales."
+		knowledge={[
+			{ name: "Inglés (C1)", isExpert: true },
+			{ name: "Diseño Web", isExpert: true },
+			{ name: "SCRUM & Kanban", isExpert: true },
+			{ name: "Código Limpio (Clean Code)", isExpert: true },
+			{ name: "Inteligencia Artificial (IA)", isExpert: true },
+			{ name: "Ciberseguridad" },
+			{ name: "Despliegue en servidor" },
+			{ name: "SEO" },
+			{ name: "Marketing digital" },
+			{ name: "RRSS" }
 		]}
 	/>
 </Layout>
