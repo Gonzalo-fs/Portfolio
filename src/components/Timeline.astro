@@ -1,0 +1,174 @@
+---
+interface Props {
+	title: string;
+	items: {
+		period: string;
+		role: string;
+		company: string;
+		desc: string;
+	}[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="content-section">
+	<h2 class="section-title">{title}</h2>
+
+	<div class="timeline">
+		{items.map((item) => (
+			<div class="timeline-item">
+				<div class="timeline-marker" />
+				<div class="timeline-content">
+					<div class="timeline-period">{item.period}</div>
+					<h3 class="timeline-title">{item.role}</h3>
+					<p class="timeline-company">{item.company}</p>
+					<p class="timeline-desc">{item.desc}</p>
+				</div>
+			</div>
+		))}
+	</div>
+</section>
+
+<style>
+	.content-section {
+		padding: 4rem 1.5rem;
+		max-width: 1200px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 2;
+	}
+
+	.section-title {
+		font-size: 2rem;
+		margin-bottom: 3rem;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.section-title::after {
+		content: "";
+		height: 1px;
+		flex-grow: 1;
+		background: linear-gradient(90deg, var(--accent), transparent);
+	}
+
+	.timeline {
+		position: relative;
+		padding: 2rem 0;
+	}
+
+	.timeline::before {
+		content: "";
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 2px;
+		height: 100%;
+		background: linear-gradient(180deg, var(--accent), transparent);
+	}
+
+	.timeline-item {
+		margin-bottom: 4rem;
+		display: flex;
+		position: relative;
+	}
+
+	.timeline-item:nth-child(odd) {
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	.timeline-item:nth-child(even) {
+		flex-direction: row-reverse;
+		justify-content: flex-start;
+	}
+
+	.timeline-marker {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background: var(--accent);
+		border: 3px solid var(--bg-dark);
+		top: 20px;
+		z-index: 1;
+		transition: all 0.3s ease;
+	}
+
+	.timeline-item:hover .timeline-marker {
+		width: 24px;
+		height: 24px;
+		top: 16px;
+		box-shadow: 0 0 20px rgba(94, 158, 255, 0.6);
+	}
+
+	.timeline-content {
+		width: 45%;
+		padding: 2rem;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(94, 158, 255, 0.2);
+		border-radius: 12px;
+		backdrop-filter: blur(10px);
+		transition: all 0.3s ease;
+	}
+
+	.timeline-item:hover .timeline-content {
+		border-color: var(--accent);
+		background: rgba(94, 158, 255, 0.05);
+		transform: translateY(-5px);
+	}
+
+	.timeline-period {
+		font-size: 0.85rem;
+		color: var(--accent);
+		font-weight: 600;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		margin-bottom: 0.5rem;
+	}
+
+	.timeline-title {
+		font-size: 1.5rem;
+		margin-bottom: 0.5rem;
+		color: var(--text-main);
+	}
+
+	.timeline-company {
+		font-size: 0.9rem;
+		color: var(--accent);
+		margin-bottom: 1rem;
+		font-weight: 600;
+	}
+
+	.timeline-desc {
+		font-size: 0.95rem;
+		color: var(--text-muted);
+		line-height: 1.6;
+	}
+
+	/* --- MOBILE TIMELINE --- */
+	@media (max-width: 767px) {
+		.timeline::before {
+			left: 20px;
+		}
+
+		.timeline-item {
+			flex-direction: column !important;
+			justify-content: flex-start !important;
+			padding-left: 60px;
+		}
+
+		.timeline-marker {
+			left: 20px;
+		}
+
+		.timeline-content {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+</style>

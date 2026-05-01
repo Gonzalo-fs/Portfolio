@@ -1,0 +1,66 @@
+---
+interface Props {
+	items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="marquee-container">
+	<div class="marquee-content">
+		{items.map((item) => (
+			<span class="marquee-item">• {item} •</span>
+		))}
+	</div>
+</div>
+
+<style>
+	.marquee-container {
+		width: 100%;
+		overflow: hidden;
+		padding: 3rem 0;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(0, 68, 255, 0.1),
+			transparent
+		);
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		display: flex;
+		position: relative;
+		z-index: 2;
+	}
+
+	.marquee-content {
+		display: flex;
+		gap: 4rem;
+		white-space: nowrap;
+		animation: scrollText 20s linear infinite;
+	}
+
+	.marquee-item {
+		font-family: "Anton", sans-serif;
+		font-size: 3rem;
+		color: rgba(255, 255, 255, 0.1);
+		-webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+	}
+
+	@keyframes scrollText {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+</style>
+
+<script>
+	// Duplicar contenido del marquee para que sea infinito
+	const marqueeContent = document.querySelector(".marquee-content");
+	if (marqueeContent) {
+		const items = marqueeContent.innerHTML;
+		marqueeContent.innerHTML = items + items;
+	}
+</script>

@@ -1,5 +1,58 @@
 ---
-import Home from "../../components/Home.astro";
+import Layout from "../../layouts/Layout.astro";
+import BackgroundEffects from "../../components/BackgroundEffects.astro";
+import Hero from "../../components/Hero.astro";
+import Marquee from "../../components/Marquee.astro";
+import AboutSection from "../../components/AboutSection.astro";
+import Timeline from "../../components/Timeline.astro";
 ---
 
-<Home currentLanguage="es" />
+<Layout currentLanguage="es">
+	<BackgroundEffects />
+
+	<Hero
+		tag="PORTFOLIO 2026 — ALPHA V.0.5"
+		title="GONZALO"
+		titleSuffix="FS"
+		description="Desarrollador Web Full Stack con más de 4 años de experiencia creando soluciones digitales escalables con código limpio y diseños intuitivos."
+	/>
+
+	<Marquee items={["Laravel", "Nuxt.js", "PHP", "Vue.js", "Java", "JQuery", "SQL", "Git", "Docker"]} />
+
+	<AboutSection
+		title="SOBRE MÍ"
+		description="Soy Desarrollador Full Stack apasionado por la intersección entre tecnología y estrategia. Con más de 4 años de experiencia construyendo soluciones web escalables, he liderado la integración de IA en mi empresa — impulsando flujos de trabajo SDD (Spec-Driven Development) que transformaron nuestra forma de desarrollar software. Viví la adquisición de nuestra empresa por Visma, adaptándome rápidamente a procesos de escala enterprise sin perder la agilidad de una startup. Como responsable de Onboarding, formo a las nuevas incorporaciones y les ayudo a crecer dentro del equipo. Creo firmemente en el código limpio, las buenas prácticas y los estándares — porque el gran software empieza con grandes cimientos. Más allá del teclado, me mueve la curiosidad: puzles, LEGO, videojuegos y cualquier reto que despierte el pensamiento creativo. Lidero proyectos, resuelvo problemas y cumplo objetivos."
+		highlights={["Líder en Integración IA", "Responsable de Onboarding", "Código Limpio", "Resolución Creativa", "Liderazgo de Equipo", "Spec-Driven Development", "Estándares y Buenas Prácticas", "Veterano Adquisición Visma"]}
+		photoAlt="Gonzalo Fontana Santibáñez"
+	/>
+
+	<Timeline
+		title="EXPERIENCIA & EDUCACIÓN"
+		items={[
+			{
+				period: "2021 - Actualidad",
+				role: "Programador Full-stack y Product Owner",
+				company: "tugesto",
+				desc: "Encargado de Onboarding, programador full-stack y Product Owner de varios proyectos. Desarrollo de APIs, rediseño de la web, asistente IA, detección automática de nóminas y validación de ficheros.",
+			},
+			{
+				period: "2018 - 2021",
+				role: "Desarrollo de Aplicaciones Web (Grado Superior)",
+				company: "IES Camp de Morvedre",
+				desc: "Formación superior en desarrollo web profesional, metodologías ágiles y manejo de bases de datos.",
+			},
+			{
+				period: "2018",
+				role: "Técnico de Soporte (Prácticas)",
+				company: "Servinco",
+				desc: "Mantenimiento de servidores y equipos informáticos. Asistencia como técnico dando soporte y atención telemática.",
+			},
+			{
+				period: "2016 - 2018",
+				role: "Sistemas Microinformáticos y Redes",
+				company: "IES Camp de Morvedre",
+				desc: "Formación general en sistemas microinformáticos, hardware, y redes locales.",
+			},
+		]}
+	/>
+</Layout>

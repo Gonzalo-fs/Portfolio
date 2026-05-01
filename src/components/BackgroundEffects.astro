@@ -1,0 +1,77 @@
+---
+// BackgroundEffects - background orbs
+// Purely visual component, no props needed
+---
+
+<div class="background-fx">
+	<div class="orb orb-1"></div>
+	<div class="orb orb-2"></div>
+	<div class="orb orb-3"></div>
+</div>
+
+<style>
+	/* --- BACKGROUND ANIMADO --- */
+	.background-fx {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		z-index: -1;
+		background:
+			radial-gradient(
+				circle at 10% 10%,
+				var(--bg-gradient-1),
+				transparent 40%
+			),
+			radial-gradient(circle at 90% 90%, #051021, transparent 40%),
+			#02040a;
+	}
+
+	.orb {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(80px);
+		opacity: 0.4;
+		animation: float 10s infinite ease-in-out alternate;
+	}
+
+	.orb-1 {
+		width: 300px;
+		height: 300px;
+		background: var(--bg-gradient-2);
+		top: 20%;
+		left: -10%;
+	}
+
+	.orb-2 {
+		width: 400px;
+		height: 400px;
+		background: #001a4d;
+		bottom: 10%;
+		right: -10%;
+		animation: float 10s infinite ease-in-out alternate -5s;
+	}
+
+	.orb-3 {
+		width: 250px;
+		height: 250px;
+		background: #0044ff;
+		top: -100px;
+		right: -100px;
+		animation: float 10s infinite ease-in-out alternate -2.5s;
+	}
+
+	@keyframes float {
+		0% {
+			transform: translate(0, 0) scale(1);
+			opacity: 0.4;
+			filter: blur(80px) brightness(0.8);
+		}
+		100% {
+			transform: translate(30px, 50px) scale(1.1);
+			opacity: 0.6;
+			filter: blur(80px) brightness(1);
+		}
+	}
+</style>
