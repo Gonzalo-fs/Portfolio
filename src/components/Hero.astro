@@ -1,0 +1,103 @@
+---
+interface Props {
+	tag: string;
+	title: string;
+	titleSuffix: string;
+	description: string;
+}
+
+const { tag, title, titleSuffix, description } = Astro.props;
+---
+
+<section class="hero">
+	<div class="hero-tag">{tag}</div>
+	<h1 class="big-name">
+		{title}<span class="name-suffix">{titleSuffix}</span>
+	</h1>
+	<p class="hero-desc">
+		{description}
+	</p>
+</section>
+
+<style>
+	.hero {
+		height: 90vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		padding: 2rem;
+		text-align: center;
+	}
+
+	.hero-tag {
+		font-size: 0.9rem;
+		color: var(--accent);
+		margin-bottom: 1rem;
+		font-weight: 600;
+		opacity: 0;
+		animation: fadeIn 1s ease forwards 0.5s;
+	}
+
+	.big-name {
+		font-size: 24vw;
+		line-height: 1;
+		background: linear-gradient(
+			180deg,
+			#fff 0%,
+			rgba(255, 255, 255, 0.5) 100%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		opacity: 0;
+		transform: translateY(50px);
+		animation: slideUpTitle 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+	}
+
+	.name-suffix {
+		font-size: 0.25em;
+		vertical-align: top;
+		position: relative;
+		top: 0.15em;
+		margin-left: 0.05em;
+		opacity: 0.8;
+		background: white;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.hero-desc {
+		margin-top: 2rem;
+		max-width: 400px;
+		color: var(--text-muted);
+		font-size: 1.1rem;
+		opacity: 0;
+		animation: fadeIn 1s ease forwards 0.8s;
+	}
+
+	@keyframes slideUpTitle {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fadeIn {
+		to {
+			opacity: 1;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.big-name {
+			font-size: 15vw;
+		}
+		.hero {
+			padding: 4rem;
+		}
+		.hero-desc {
+			max-width: 600px;
+		}
+	}
+</style>
