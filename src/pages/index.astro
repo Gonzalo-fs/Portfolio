@@ -6,6 +6,7 @@ import Marquee from "../components/Marquee.astro";
 import AboutSection from "../components/AboutSection.astro";
 import Timeline from "../components/Timeline.astro";
 import Skills from "../components/Skills.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout currentLanguage="en">
@@ -25,36 +26,6 @@ import Skills from "../components/Skills.astro";
 		description="I'm a Full Stack Developer who thrives at the intersection of technology and strategy. With 4+ years of experience building scalable web solutions, I've led the AI integration initiative at my company — pioneering SDD (Spec-Driven Development) workflows that transformed how our team ships software. I navigated the acquisition of our company by Visma, adapting quickly to enterprise-scale processes while keeping the agility of a startup mindset. As the Onboarding Manager, I shape how new team members grow into the company. I'm a firm believer in clean code, best practices, and standards — because great software starts with great foundations. Beyond the keyboard, I'm driven by curiosity: puzzles, LEGO, video games, and any challenge that sparks creative thinking. I lead projects, I solve problems, and I get things done."
 		highlights={["AI Integration Leader", "Onboarding Manager", "Clean Code Advocate", "Creative Problem Solver", "Team Leader", "Spec-Driven Development", "Standards & Best Practices", "Visma Acquisition Veteran"]}
 		photoAlt="Gonzalo Fontana Santibáñez"
-	/>
-
-	<Timeline
-		title="EXPERIENCE & EDUCATION"
-		items={[
-			{
-				period: "2021 - Present",
-				role: "Full-stack Developer & Product Owner",
-				company: "tugesto",
-				desc: "Onboarding Manager, full-stack programmer, and Product Owner of several projects. API development, web redesign, AI assistant features, automatic payroll detection, and file validation.",
-			},
-			{
-				period: "2018 - 2021",
-				role: "Web Application Development (Higher Degree)",
-				company: "IES Camp de Morvedre",
-				desc: "Higher education in professional web development, agile methodologies, and database management.",
-			},
-			{
-				period: "2018",
-				role: "Support Technician (Internship)",
-				company: "Servinco",
-				desc: "Server and equipment maintenance. Technical assistance providing remote support and telematics.",
-			},
-			{
-				period: "2016 - 2018",
-				role: "Microcomputer Systems and Networks",
-				company: "IES Camp de Morvedre",
-				desc: "General training in microcomputer systems, hardware, and local networks.",
-			},
-		]}
 	/>
 
 	<Skills 
@@ -137,5 +108,42 @@ import Skills from "../components/Skills.astro";
 				]
 			}
 		]}
+	/>
+	
+	<Timeline
+		title="EXPERIENCE & EDUCATION"
+		items={[
+			{
+				period: "2021 - Present",
+				role: "Full-stack Developer & Product Owner",
+				company: "tugesto",
+				desc: "Onboarding Manager, full-stack programmer, and Product Owner of several projects. API development, web redesign, AI assistant features, automatic payroll detection, and file validation.",
+			},
+			{
+				period: "2018 - 2021",
+				role: "Web Application Development (Higher Degree)",
+				company: "IES Camp de Morvedre",
+				desc: "Higher education in professional web development, agile methodologies, and database management.",
+			},
+			{
+				period: "2018",
+				role: "Support Technician (Internship)",
+				company: "Servinco",
+				desc: "Server and equipment maintenance. Technical assistance providing remote support and telematics.",
+			},
+			{
+				period: "2016 - 2018",
+				role: "Microcomputer Systems and Networks",
+				company: "IES Camp de Morvedre",
+				desc: "General training in microcomputer systems, hardware, and local networks.",
+			},
+		]}
+	/>
+
+	<Contact
+		title="LET'S CONNECT"
+		description="I'm currently open to new opportunities. Whether you have a question, a project in mind, or just want to say hi, I'll try my best to get back to you!"
+		ctaText="Say Hello"
+		email="contact@gonzalofs.com"
 	/>
 </Layout>
