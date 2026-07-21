@@ -11,7 +11,6 @@ interface SkillSubcategory {
 
 interface Props {
 	title: string;
-	intro: string;
 	legendText: string;
 	techStackTitle: string;
 	techStackDesc: string;
@@ -23,7 +22,6 @@ interface Props {
 
 const {
 	title,
-	intro,
 	legendText,
 	techStackTitle,
 	techStackDesc,
@@ -36,9 +34,6 @@ const {
 
 <section class="content-section">
 	<h2 class="section-title">{title}</h2>
-	<!-- <p class="skills-intro">
-		{intro}
-	</p> -->
 
 	<div class="skills-legend">
 		<div class="legend-item">
@@ -130,14 +125,6 @@ const {
 		height: 1px;
 		flex-grow: 1;
 		background: linear-gradient(90deg, var(--accent), transparent);
-	}
-
-	.skills-intro {
-		font-size: 1.1rem;
-		color: var(--text-muted);
-		max-width: 800px;
-		line-height: 1.6;
-		margin-bottom: 2rem;
 	}
 
 	.skills-legend {

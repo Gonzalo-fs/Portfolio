@@ -13,24 +13,23 @@ import Contact from "../components/Contact.astro";
 	<BackgroundEffects />
 
 	<Hero
-		tag="PORTFOLIO 2026 — ALPHA V.0.5"
+		tag="PORTFOLIO 2026 — ALPHA V.0.6"
 		title="GONZALO"
 		titleSuffix="FS"
-		description="Full Stack Web Developer with over 4 years of experience creating scalable digital solutions with clean code and intuitive designs."
+		description="Senior Full-Stack Engineer with 5+ years of experience developing production-ready solutions with clean code and intuitive designs."
 	/>
 
-	<Marquee items={["Laravel", "Nuxt.js", "PHP", "Vue.js", "Java", "JQuery", "SQL", "Git", "Docker"]} />
+	<Marquee items={["Laravel", "Vue.js", "PHP", "JavaScript", "Nuxt.js", "Astro", "Docker", "Git", "MySQL"]} />
 
 	<AboutSection
 		title="ABOUT ME"
-		description="I'm a Full Stack Developer who thrives at the intersection of technology and strategy. With 4+ years of experience building scalable web solutions, I've led the AI integration initiative at my company — pioneering SDD (Spec-Driven Development) workflows that transformed how our team ships software. I navigated the acquisition of our company by Visma, adapting quickly to enterprise-scale processes while keeping the agility of a startup mindset. As the Onboarding Manager, I shape how new team members grow into the company. I'm a firm believer in clean code, best practices, and standards — because great software starts with great foundations. Beyond the keyboard, I'm driven by curiosity: puzzles, LEGO, video games, and any challenge that sparks creative thinking. I lead projects, I solve problems, and I get things done."
-		highlights={["AI Integration Leader", "Onboarding Manager", "Clean Code Advocate", "Creative Problem Solver", "Team Leader", "Spec-Driven Development", "Standards & Best Practices", "Visma Acquisition Veteran"]}
+		description="With 5+ years of experience, I deeply understand the core of software engineering and problem-solving. I can take full ownership of a problem, developing and deploying production-ready solutions. Today, as an AI-augmented Full-Stack Engineer, I work as the orchestrator and reviewer of AI agents, ensuring high-quality secure code and accelerating end-to-end delivery."
+		highlights={["Onboarding Lead", "Product Owner", "AI Integration Leadership", "Modernization of Legacy Projects", "Problem-Solver"]}
 		photoAlt="Gonzalo Fontana Santibáñez"
 	/>
 
 	<Skills 
-		title="SKILLS & EXPERTISE"
-		intro="As a young and proactive developer, I combine my problem-solving instinct with an insatiable desire to keep growing. I excel at solving architectural puzzles and bringing ideas from different perspectives, always striving for excellence and clean code."
+		title="SKILLS"
 		legendText="Areas of deep expertise"
 		techStackTitle="Tech Stack"
 		techStackDesc="Main languages, frameworks, and tools."
@@ -38,39 +37,45 @@ import Contact from "../components/Contact.astro";
 			{
 				title: "Backend",
 				skills: [
-					{ name: "Laravel" },
-					{ name: "PHP" },
-					{ name: "Java" },
-					{ name: "Spring Boot" },
-					{ name: "SQL" },
-					{ name: "REST API", isExpert: true }
+					{ name: "PHP", isExpert: true },
+					{ name: "Laravel", isExpert: true },
+					{ name: "Eloquent ORM", isExpert: true },
+					{ name: "MySQL / MariaDB", isExpert: true },
+					{ name: "Livewire" },
+					{ name: "RESTful APIs", isExpert: true },
 				]
 			},
 			{
 				title: "Frontend",
 				skills: [
-					{ name: "Vue.js" },
-					{ name: "Nuxt.js" },
-					{ name: "jQuery" },
-					{ name: "JS" },
-					{ name: "HTML" },
-					{ name: "CSS" }
+					{ name: "JavaScript", isExpert: true },
+					{ name: "Vue.js / Nuxt.js", isExpert: true },
+					{ name: "Astro" },
+					{ name: "Inertia.js" },
+					{ name: "Tailwind CSS" },
+					{ name: "HTML5 / CSS3", isExpert: true },
+					{ name: "jQuery", isExpert: true }
 				]
 			},
 			{
-				title: "Tools & Workflows",
+				title: "AI",
 				skills: [
-					{ name: "Git" },
+					{ name: "LLM Orchestration", isExpert: true },
+					{ name: "MCPs & AI Skills", isExpert: true },
+					{ name: "GitHub Copilot"},
+					{ name: "Antigravity" },
+					{ name: "OpenCode" },
+					{ name: "Codex" },
+				]
+			},
+			{
+				title: "Tools",
+				skills: [
+					{ name: "Git / GitHub / Bitbucket", isExpert: true },
 					{ name: "Docker" },
-					{ name: "Jira" },
-					{ name: "CMS (Prestashop, Wordpress)", isExpert: true }
-				]
-			},
-			{
-				title: "AI Tools",
-				skills: [
-					{ name: "Copilot" },
-					{ name: "GPT-codex" }
+					{ name: "Jira", isExpert: true },
+					{ name: "HubSpot" },
+					{ name: "CMS (PrestaShop, WordPress)" }
 				]
 			}
 		]}
@@ -78,33 +83,37 @@ import Contact from "../components/Contact.astro";
 		knowledgeDesc="Complementary and transversal skills."
 		knowledgeSubcategories={[
 			{
-				title: "Methodologies & Core",
+				title: "Methodologies",
 				skills: [
-					{ name: "SCRUM & Kanban", isExpert: true },
-					{ name: "Clean Code", isExpert: true }
+					{ name: "Agile (Scrum / Kanban)", isExpert: true },
+					{ name: "Clean Code / SOLID", isExpert: true },
+					{ name: "Object-Oriented Programming", isExpert: true },
+					{ name: "Spec-Driven Development", isExpert: true },
+					{ name: "Domain-Driven Design" },
+					{ name: "Test-Driven Development" }
 				]
 			},
 			{
-				title: "Design & Languages",
+				title: "Infrastructure",
 				skills: [
-					{ name: "Web Design", isExpert: true },
-					{ name: "English (C1)", isExpert: true }
+					{ name: "Web Hosting" },
+					{ name: "DNS & Domain Managment" },
+					{ name: "Cybersecurity Fundamentals" }
 				]
 			},
 			{
-				title: "Systems & Security",
+				title: "Web Design",
 				skills: [
-					{ name: "Artificial Intelligence (AI)", isExpert: true },
-					{ name: "Cybersecurity" },
-					{ name: "Server Deployment" }
-				]
-			},
-			{
-				title: "Marketing",
-				skills: [
-					{ name: "SEO" },
+					{ name: "UI/UX Design", isExpert: true },
 					{ name: "Digital Marketing" },
-					{ name: "Social Media" }
+					{ name: "SEO" }
+				]
+			},
+			{
+				title: "Languages",
+				skills: [
+					{ name: "Spanish (Native)", isExpert: true },
+					{ name: "English (C1)", isExpert: true }
 				]
 			}
 		]}
@@ -115,27 +124,33 @@ import Contact from "../components/Contact.astro";
 		items={[
 			{
 				period: "2021 - Present",
-				role: "Full-stack Developer & Product Owner",
-				company: "tugesto",
-				desc: "Onboarding Manager, full-stack programmer, and Product Owner of several projects. API development, web redesign, AI assistant features, automatic payroll detection, and file validation.",
+				role: "Full-Stack Engineer",
+				company: "tugesto (VISMA group)",
+				desc: "Onboarding Lead for +25 new hires, Product Owner for APIs and public website. Led shift to new AI tools (SDD, custom Skills, MCPs) and modernized legacy PHP projects to Laravel 10.",
+			},
+			{
+				period: "2026",
+				role: "AI Certifications",
+				company: "OpenAI & Anthropic",
+				desc: "AI Agents and Workflows Certification by OpenAI. AI Fluency: Framework & Foundations Certification by Anthropic.",
 			},
 			{
 				period: "2018 - 2021",
-				role: "Web Application Development (Higher Degree)",
+				role: "Web Application Development (HND)",
 				company: "IES Camp de Morvedre",
-				desc: "Higher education in professional web development, agile methodologies, and database management.",
+				desc: "Higher Vocational Training in professional web development, agile methodologies, and databases.",
 			},
 			{
 				period: "2018",
-				role: "Support Technician (Internship)",
+				role: "IT Technician (Internship)",
 				company: "Servinco",
-				desc: "Server and equipment maintenance. Technical assistance providing remote support and telematics.",
+				desc: "Maintained servers and hardware infrastructure. Provided remote technical support and IT troubleshooting.",
 			},
 			{
 				period: "2016 - 2018",
 				role: "Microcomputer Systems and Networks",
 				company: "IES Camp de Morvedre",
-				desc: "General training in microcomputer systems, hardware, and local networks.",
+				desc: "Vocational Training in microcomputer systems, hardware, and local networks.",
 			},
 		]}
 	/>
