@@ -5,25 +5,118 @@ import Hero from "../../components/Hero.astro";
 import Marquee from "../../components/Marquee.astro";
 import AboutSection from "../../components/AboutSection.astro";
 import Timeline from "../../components/Timeline.astro";
+import Skills from "../../components/Skills.astro";
+import Contact from "../../components/Contact.astro";
 ---
 
 <Layout currentLanguage="es">
 	<BackgroundEffects />
 
 	<Hero
-		tag="PORTFOLIO 2026 — ALPHA V.0.5"
+		tag="PORTFOLIO 2026 — ALPHA V.0.6"
 		title="GONZALO"
 		titleSuffix="FS"
-		description="Desarrollador Web Full Stack con más de 4 años de experiencia creando soluciones digitales escalables con código limpio y diseños intuitivos."
+		description="Senior Full-Stack Engineer con más de 5 años de experiencia desarrollando soluciones listas para producción con código limpio y diseños intuitivos."
 	/>
 
-	<Marquee items={["Laravel", "Nuxt.js", "PHP", "Vue.js", "Java", "JQuery", "SQL", "Git", "Docker"]} />
+	<Marquee items={["Laravel", "Vue.js", "PHP", "JavaScript", "Nuxt.js", "Astro", "Docker", "Git", "MySQL"]} />
 
 	<AboutSection
 		title="SOBRE MÍ"
-		description="Soy Desarrollador Full Stack apasionado por la intersección entre tecnología y estrategia. Con más de 4 años de experiencia construyendo soluciones web escalables, he liderado la integración de IA en mi empresa — impulsando flujos de trabajo SDD (Spec-Driven Development) que transformaron nuestra forma de desarrollar software. Viví la adquisición de nuestra empresa por Visma, adaptándome rápidamente a procesos de escala enterprise sin perder la agilidad de una startup. Como responsable de Onboarding, formo a las nuevas incorporaciones y les ayudo a crecer dentro del equipo. Creo firmemente en el código limpio, las buenas prácticas y los estándares — porque el gran software empieza con grandes cimientos. Más allá del teclado, me mueve la curiosidad: puzles, LEGO, videojuegos y cualquier reto que despierte el pensamiento creativo. Lidero proyectos, resuelvo problemas y cumplo objetivos."
-		highlights={["Líder en Integración IA", "Responsable de Onboarding", "Código Limpio", "Resolución Creativa", "Liderazgo de Equipo", "Spec-Driven Development", "Estándares y Buenas Prácticas", "Veterano Adquisición Visma"]}
+		description="Con más de 5 años de experiencia, entiendo profundamente el núcleo de la ingeniería de software y la resolución de problemas. Puedo asumir la responsabilidad total de un problema, desarrollando y desplegando soluciones listas para producción. Hoy, como Full-Stack Engineer potenciado por IA, trabajo como orquestador y revisor de agentes de Inteligencia Artificial, garantizando código seguro de alta calidad y acelerando la entrega de principio a fin."
+		highlights={["Onboarding Lead", "Product Owner", "Liderazgo en Integración IA", "Modernización de Proyectos Legacy", "Resolución Creativa"]}
 		photoAlt="Gonzalo Fontana Santibáñez"
+	/>
+
+	<Skills 
+		title="HABILIDADES"
+		legendText="Áreas de alta especialización"
+		techStackTitle="Stack Tecnológico"
+		techStackDesc="Lenguajes, frameworks y herramientas principales."
+		techStackSubcategories={[
+			{
+				title: "Backend",
+				skills: [
+					{ name: "PHP", isExpert: true },
+					{ name: "Laravel", isExpert: true },
+					{ name: "Eloquent ORM", isExpert: true },
+					{ name: "MySQL / MariaDB", isExpert: true },
+					{ name: "Livewire" },
+					{ name: "APIs RESTful", isExpert: true },
+				]
+			},
+			{
+				title: "Frontend",
+				skills: [
+					{ name: "JavaScript", isExpert: true },
+					{ name: "Vue.js / Nuxt.js", isExpert: true },
+					{ name: "Astro" },
+					{ name: "Inertia.js" },
+					{ name: "Tailwind CSS" },
+					{ name: "HTML5 / CSS3", isExpert: true },
+					{ name: "jQuery", isExpert: true }
+				]
+			},
+			{
+				title: "IA",
+				skills: [
+					{ name: "Orquestación LLM", isExpert: true },
+					{ name: "MCPs y Skills IA", isExpert: true },
+					{ name: "GitHub Copilot" },
+					{ name: "Antigravity" },
+					{ name: "OpenCode" },
+					{ name: "Codex" },
+				]
+			},
+			{
+				title: "Herramientas",
+				skills: [
+					{ name: "Git / GitHub / Bitbucket", isExpert: true },
+					{ name: "Docker" },
+					{ name: "Jira", isExpert: true },
+					{ name: "HubSpot" },
+					{ name: "CMS (PrestaShop, WordPress)" }
+				]
+			}
+		]}
+		knowledgeTitle="Conocimientos y Metodologías"
+		knowledgeDesc="Habilidades complementarias y transversales."
+		knowledgeSubcategories={[
+			{
+				title: "Metodologías",
+				skills: [
+					{ name: "Agile (Scrum / Kanban)", isExpert: true },
+					{ name: "Clean Code / SOLID", isExpert: true },
+					{ name: "Programación Orientada a Objetos", isExpert: true },
+					{ name: "Spec-Driven Development", isExpert: true },
+					{ name: "Domain-Driven Design" },
+					{ name: "Test-Driven Development" }
+				]
+			},
+			{
+				title: "Infraestructura",
+				skills: [
+					{ name: "Hosting Web" },
+					{ name: "Gestión de DNS y Dominios" },
+					{ name: "Fundamentos Ciberseguridad" }
+				]
+			},
+			{
+				title: "Diseño Web",
+				skills: [
+					{ name: "Diseño UI/UX", isExpert: true },
+					{ name: "Marketing Digital" },
+					{ name: "SEO" }
+				]
+			},
+			{
+				title: "Idiomas",
+				skills: [
+					{ name: "Español (Nativo)", isExpert: true },
+					{ name: "Inglés (C1)", isExpert: true }
+				]
+			}
+		]}
 	/>
 
 	<Timeline
@@ -31,28 +124,41 @@ import Timeline from "../../components/Timeline.astro";
 		items={[
 			{
 				period: "2021 - Actualidad",
-				role: "Programador Full-stack y Product Owner",
-				company: "tugesto",
-				desc: "Encargado de Onboarding, programador full-stack y Product Owner de varios proyectos. Desarrollo de APIs, rediseño de la web, asistente IA, detección automática de nóminas y validación de ficheros.",
+				role: "Full-Stack Engineer",
+				company: "tugesto (Grupo VISMA)",
+				desc: "Onboarding Lead para +25 incorporaciones, Product Owner de APIs y web pública. Lideré la integración de IA (SDD, Skills personalizadas, MCPs) y modernicé proyectos legacy PHP a Laravel 10.",
+			},
+			{
+				period: "2026",
+				role: "Certificaciones IA",
+				company: "OpenAI & Anthropic",
+				desc: "Certificación de AI Agents y Workflows por OpenAI. Certificación AI Fluency: Framework & Foundations por Anthropic.",
 			},
 			{
 				period: "2018 - 2021",
 				role: "Desarrollo de Aplicaciones Web (Grado Superior)",
 				company: "IES Camp de Morvedre",
-				desc: "Formación superior en desarrollo web profesional, metodologías ágiles y manejo de bases de datos.",
+				desc: "Formación profesional superior en desarrollo web, metodologías ágiles y bases de datos.",
 			},
 			{
 				period: "2018",
 				role: "Técnico de Soporte (Prácticas)",
 				company: "Servinco",
-				desc: "Mantenimiento de servidores y equipos informáticos. Asistencia como técnico dando soporte y atención telemática.",
+				desc: "Mantenimiento de servidores e infraestructura de hardware. Asistencia técnica remota y resolución de problemas IT.",
 			},
 			{
 				period: "2016 - 2018",
 				role: "Sistemas Microinformáticos y Redes",
 				company: "IES Camp de Morvedre",
-				desc: "Formación general en sistemas microinformáticos, hardware, y redes locales.",
+				desc: "Formación profesional en sistemas microinformáticos, hardware y redes locales.",
 			},
 		]}
+	/>
+
+	<Contact
+		title="CONTACTO"
+		description="Actualmente estoy abierto a nuevas oportunidades. Ya sea que tengas una pregunta, un proyecto en mente, o simplemente quieras saludar, ¡haré lo posible por responderte!"
+		ctaText="Escríbeme"
+		email="contact@gonzalofs.com"
 	/>
 </Layout>

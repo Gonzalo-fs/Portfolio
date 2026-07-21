@@ -12,6 +12,7 @@ const { title, description, highlights, photoAlt } = Astro.props;
 ---
 
 <section class="about-section" id="about-section">
+	<h2 class="section-title">{title}</h2>
 	<div class="about-card">
 		<div class="about-photo-wrapper">
 			<div class="photo-glow"></div>
@@ -28,13 +29,12 @@ const { title, description, highlights, photoAlt } = Astro.props;
 			</div>
 		</div>
 		<div class="about-text">
-			<h2 class="section-title">{title}</h2>
 			<p class="about-bio">{description}</p>
-			<div class="about-highlights">
+			<!-- <div class="about-highlights">
 				{highlights.map((tag: string) => (
 					<span class="highlight-tag">{tag}</span>
 				))}
-			</div>
+			</div> -->
 		</div>
 	</div>
 </section>
