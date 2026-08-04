@@ -1,10 +1,9 @@
 {
-  // "main": "dist/_worker.js/index.js",n
   "name": "portfolio",
   "compatibility_date": "2026-01-25",
   "compatibility_flags": [
     "nodejs_compat",
-    "global_fetch_strictly_public"
+    "disable_nodejs_process_v2"
   ],
   "assets": {
     "binding": "ASSETS",

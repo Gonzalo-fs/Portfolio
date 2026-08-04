@@ -1,7 +1,8 @@
 {
   "name": "portfolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.7",
+  "packageManager": "npm@11.6.2",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.2",
-    "astro": "^6.0.6"
+    "@astrojs/cloudflare": "^14.1.7",
+    "astro": "^7.1.6"
   },
   "devDependencies": {
-    "wrangler": "^4.60.0"
+    "wrangler": "^4.118.0"
   }
 }
