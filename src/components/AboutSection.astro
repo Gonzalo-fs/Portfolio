@@ -1,14 +1,16 @@
 ---
 import fotoCV from "../assets/FotoCVportrait.avif";
+import SocialLinks from "./SocialLinks.astro";
 
 interface Props {
 	title: string;
 	description: string;
 	highlights: string[];
 	photoAlt: string;
+	cvLabel?: string;
 }
 
-const { title, description, highlights, photoAlt } = Astro.props;
+const { title, description, highlights, photoAlt, cvLabel = "Download CV" } = Astro.props;
 ---
 
 <section class="about-section" id="about-section">
@@ -35,6 +37,7 @@ const { title, description, highlights, photoAlt } = Astro.props;
 					<span class="highlight-tag">{tag}</span>
 				))}
 			</div> -->
+			<SocialLinks cvLabel={cvLabel} />
 		</div>
 	</div>
 </section>
