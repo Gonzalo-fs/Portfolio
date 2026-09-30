@@ -3,17 +3,16 @@ import Layout from "../../layouts/Layout.astro";
 import BackgroundEffects from "../../components/BackgroundEffects.astro";
 import Hero from "../../components/Hero.astro";
 import Marquee from "../../components/Marquee.astro";
-import AboutSection from "../../components/AboutSection.astro";
+import ContactMe from "../../components/ContactMe.astro";
 import Timeline from "../../components/Timeline.astro";
 import Skills from "../../components/Skills.astro";
-import Contact from "../../components/Contact.astro";
 ---
 
 <Layout currentLanguage="es">
 	<BackgroundEffects />
 
 	<Hero
-		tag="PORTFOLIO 2026 — ALPHA V.0.8"
+		tag="PORTFOLIO 2026 — ALPHA V.0.9"
 		title="GONZALO"
 		titleSuffix="FS"
 		description="Full-Stack Engineer con +5 años de experiencia."
@@ -21,11 +20,15 @@ import Contact from "../../components/Contact.astro";
 
 	<Marquee items={["Laravel", "Vue.js", "PHP", "JavaScript", "Nuxt.js", "Astro", "Docker", "Git", "MySQL"]} />
 
-	<AboutSection
-		title="SOBRE MÍ"
+	<ContactMe
+		title="Contacta conmigo"
 		description="Con más de 5 años de experiencia, entiendo profundamente el núcleo de la ingeniería de software y la resolución de problemas. Puedo asumir la responsabilidad total de un problema, desarrollando y desplegando soluciones listas para producción. Hoy, como Full-Stack Engineer potenciado por IA, trabajo como orquestador y revisor de agentes de Inteligencia Artificial, garantizando código seguro de alta calidad y acelerando la entrega de principio a fin."
-		highlights={["Onboarding Lead", "Product Owner", "Liderazgo en Integración IA", "Modernización de Proyectos Legacy", "Resolución Creativa"]}
 		photoAlt="Gonzalo Fontana Santibáñez"
+		contactDescription="Actualmente estoy abierto a nuevas oportunidades. Ya sea que tengas una pregunta, un proyecto en mente, o simplemente quieras saludar, ¡haré lo posible por responderte!"
+		ctaText="Escríbeme"
+		email="contact@gonzalofs.com"
+		lang="es"
+		cvLabel="Ver CV"
 	/>
 
 	<Skills 
@@ -171,12 +174,5 @@ import Contact from "../../components/Contact.astro";
 				desc: "Formación profesional en sistemas microinformáticos, hardware y redes locales.",
 			},
 		]}
-	/>
-
-	<Contact
-		title="CONTACTO"
-		description="Actualmente estoy abierto a nuevas oportunidades. Ya sea que tengas una pregunta, un proyecto en mente, o simplemente quieras saludar, ¡haré lo posible por responderte!"
-		ctaText="Escríbeme"
-		email="contact@gonzalofs.com"
 	/>
 </Layout>

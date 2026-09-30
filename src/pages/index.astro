@@ -3,17 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import BackgroundEffects from "../components/BackgroundEffects.astro";
 import Hero from "../components/Hero.astro";
 import Marquee from "../components/Marquee.astro";
-import AboutSection from "../components/AboutSection.astro";
+import ContactMe from "../components/ContactMe.astro";
 import Timeline from "../components/Timeline.astro";
 import Skills from "../components/Skills.astro";
-import Contact from "../components/Contact.astro";
 ---
 
 <Layout currentLanguage="en">
 	<BackgroundEffects />
 
 	<Hero
-		tag="PORTFOLIO 2026 — ALPHA V.0.8"
+		tag="PORTFOLIO 2026 — ALPHA V.0.9"
 		title="GONZALO"
 		titleSuffix="FS"
 		description="Full-Stack Engineer with 5+ years of experience."
@@ -21,11 +20,15 @@ import Contact from "../components/Contact.astro";
 
 	<Marquee items={["Laravel", "Vue.js", "PHP", "JavaScript", "Nuxt.js", "Astro", "Docker", "Git", "MySQL"]} />
 
-	<AboutSection
-		title="ABOUT ME"
+	<ContactMe
+		title="Let's connect"
 		description="With 5+ years of experience, I deeply understand the core of software engineering and problem-solving. I can take full ownership of a problem, developing and deploying production-ready solutions. Today, as an AI-augmented Full-Stack Engineer, I work as the orchestrator and reviewer of AI agents, ensuring high-quality secure code and accelerating end-to-end delivery."
-		highlights={["Onboarding Lead", "Product Owner", "AI Integration Leadership", "Modernization of Legacy Projects", "Problem-Solver"]}
 		photoAlt="Gonzalo Fontana Santibáñez"
+		contactDescription="I'm currently open to new opportunities. Whether you have a question, a project in mind, or just want to say hi, I'll try my best to get back to you!"
+		ctaText="Say Hello"
+		email="contact@gonzalofs.com"
+		lang="en"
+		cvLabel="View CV"
 	/>
 
 	<Skills 
@@ -174,10 +177,4 @@ import Contact from "../components/Contact.astro";
 		]}
 	/>
 
-	<Contact
-		title="LET'S CONNECT"
-		description="I'm currently open to new opportunities. Whether you have a question, a project in mind, or just want to say hi, I'll try my best to get back to you!"
-		ctaText="Say Hello"
-		email="contact@gonzalofs.com"
-	/>
 </Layout>
