@@ -5,15 +5,29 @@ import SocialLinks from "./SocialLinks.astro";
 interface Props {
 	title: string;
 	description: string;
-	highlights: string[];
 	photoAlt: string;
 	cvLabel?: string;
+	contactDescription?: string;
+	ctaText?: string;
+	email?: string;
+	lang?: "en" | "es";
 }
 
-const { title, description, highlights, photoAlt, cvLabel = "Download CV" } = Astro.props;
+const {
+	title,
+	description,
+	photoAlt,
+	cvLabel = "View CV",
+	contactDescription,
+	ctaText = "Say Hello",
+	email = "contact@gonzalofs.com",
+	lang = "en",
+} = Astro.props;
+
+const [user, domain] = email.split("@");
 ---
 
-<section class="about-section" id="about-section">
+<section class="contact-me-section" id="contact-me-section">
 	<h2 class="section-title">{title}</h2>
 	<div class="about-card">
 		<div class="about-photo-wrapper">
@@ -32,14 +46,51 @@ const { title, description, highlights, photoAlt, cvLabel = "Download CV" } = As
 		</div>
 		<div class="about-text">
 			<p class="about-bio">{description}</p>
-			<!-- <div class="about-highlights">
-				{highlights.map((tag: string) => (
-					<span class="highlight-tag">{tag}</span>
-				))}
-			</div> -->
-			<SocialLinks cvLabel={cvLabel} />
+			<SocialLinks cvLabel={cvLabel} lang={lang} />
 		</div>
 	</div>
+
+	{contactDescription && (
+		<div class="contact-card">
+			<p class="contact-desc">{contactDescription}</p>
+
+			<a
+				href="mailto:inquiries@gonzalofs.com"
+				class="site-widget-alt"
+				tabindex="-1"
+				aria-hidden="true">Contact Me</a
+			>
+			<input
+				type="email"
+				name="user_email"
+				class="site-widget-alt"
+				tabindex="-1"
+				aria-hidden="true"
+				autocomplete="off"
+				value=""
+			/>
+		</div>
+	)}
+
+	{ctaText && (
+		<div class="contact-cta action-btn" data-pt1={user} data-pt2={domain}>
+			{ctaText}
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="40"
+				height="40"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="cta-icon"
+				><line x1="22" y1="2" x2="11" y2="13"></line><polygon
+					points="22 2 15 22 11 13 2 9 22 2"></polygon></svg
+			>
+		</div>
+	)}
 </section>
 
 <style>
@@ -58,7 +109,7 @@ const { title, description, highlights, photoAlt, cvLabel = "Download CV" } = As
 		background: linear-gradient(90deg, var(--accent), transparent);
 	}
 
-	.about-section {
+	.contact-me-section {
 		padding: 6rem 1.5rem;
 		max-width: 1200px;
 		margin: 0 auto;
@@ -66,11 +117,12 @@ const { title, description, highlights, photoAlt, cvLabel = "Download CV" } = As
 		z-index: 2;
 		opacity: 0;
 		transform: translateY(40px);
-		transition: opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1),
+		transition:
+			opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1),
 			transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 	}
 
-	.about-section.visible {
+	.contact-me-section.visible {
 		opacity: 1;
 		transform: translateY(0);
 	}
@@ -80,16 +132,17 @@ const { title, description, highlights, photoAlt, cvLabel = "Download CV" } = As
 		grid-template-columns: 320px 1fr;
 		gap: 3rem;
 		align-items: center;
-		background: rgba(255, 255, 255, 0.02);
+		background: #185ddf12;
 		border: 1px solid rgba(94, 158, 255, 0.15);
-		border-radius: 24px;
-		padding: 3rem;
+		border-radius:  200px;
+		padding: 2rem 3rem 2rem 10px;
 		backdrop-filter: blur(16px);
 		-webkit-backdrop-filter: blur(16px);
 		box-shadow:
 			0 8px 32px rgba(0, 0, 0, 0.3),
 			inset 0 1px 0 rgba(255, 255, 255, 0.05);
 		transition: border-color 0.4s ease;
+		margin-bottom: 2rem;
 	}
 
 	.about-card:hover {
@@ -184,45 +237,91 @@ const { title, description, highlights, photoAlt, cvLabel = "Download CV" } = As
 		color: var(--text-muted);
 	}
 
-	.about-highlights {
+	.contact-card {
 		display: flex;
-		flex-wrap: wrap;
-		gap: 0.6rem;
+		flex-direction: column;
+		align-items: center;
+		gap: 2.5rem;
+		background: #185ddf12;
+		border: 1px solid rgba(94, 158, 255, 0.15);
+		border-radius: 0px 200px 200px 200px;
+		padding: 4rem 2rem;
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		box-shadow:
+			0 8px 32px rgba(0, 0, 0, 0.3),
+			inset 0 1px 0 rgba(255, 255, 255, 0.05);
+		transition: border-color 0.4s ease;
+		max-width: 800px;
+		margin: 0 auto;
 	}
 
-	.highlight-tag {
-		padding: 0.5rem 1.1rem;
-		border: 1px solid rgba(94, 158, 255, 0.3);
-		border-radius: 100px;
-		font-size: 0.85rem;
-		color: var(--accent);
-		background: rgba(94, 158, 255, 0.06);
+	.contact-card:hover {
+		border-color: rgba(94, 158, 255, 0.35);
+	}
+
+	.contact-desc {
+		font-size: 1.15rem;
+		line-height: 1.7;
+		color: var(--text-muted);
+		max-width: 610px;
+		text-align: center;
+	}
+
+	.site-widget-alt {
+		position: absolute;
+		left: -9999px;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.contact-cta {
+		position: absolute;
+		right: 10px;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 1rem 2.5rem;
+		background: var(--accent);
+		color: #fff;
+		font-weight: 600;
+		font-size: 2.1rem;
+		border-radius: 100px 100px 0px 100px;
+		text-decoration: none;
+		border: none;
+		outline: none;
+		font-family: inherit;
+		cursor: pointer;
 		transition: all 0.3s ease;
-		cursor: default;
-		white-space: nowrap;
+		box-shadow: 0 4px 15px rgba(94, 158, 255, 0.3);
+		margin-top: 30px;
 	}
 
-	.highlight-tag:hover {
-		background: rgba(94, 158, 255, 0.15);
-		border-color: var(--accent);
-		transform: translateY(-2px);
-		box-shadow: 0 4px 15px rgba(94, 158, 255, 0.2);
+	.contact-cta:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 6px 20px rgba(94, 158, 255, 0.5);
+		filter: brightness(1.1);
+	}
+
+	.cta-icon {
+		transition: transform 0.3s ease;
+		transform: translate(-3px, 2px);
+	}
+
+	.contact-cta:hover .cta-icon {
+		transform: translate(5px, -4px);
 	}
 
 	@media (max-width: 900px) {
 		.about-card {
 			grid-template-columns: 1fr;
 			text-align: center;
-			padding: 2rem;
+			padding: 20px;
 		}
 
 		.about-photo-wrapper {
 			width: 220px;
 			height: 220px;
-		}
-
-		.about-highlights {
-			justify-content: center;
 		}
 
 		.about-text .section-title {
@@ -236,9 +335,8 @@ const { title, description, highlights, photoAlt, cvLabel = "Download CV" } = As
 </style>
 
 <script>
-	// About Section - Scroll Reveal
-	const aboutSection = document.getElementById("about-section");
-	if (aboutSection) {
+	const contactMeSection = document.getElementById("contact-me-section");
+	if (contactMeSection) {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
@@ -250,6 +348,19 @@ const { title, description, highlights, photoAlt, cvLabel = "Download CV" } = As
 			},
 			{ threshold: 0.15 },
 		);
-		observer.observe(aboutSection);
+		observer.observe(contactMeSection);
 	}
+
+	// Action button logic
+	const actionBtns = document.querySelectorAll(".action-btn");
+	actionBtns.forEach((btn) => {
+		btn.addEventListener("click", (e) => {
+			e.preventDefault();
+			const pt1 = btn.getAttribute("data-pt1");
+			const pt2 = btn.getAttribute("data-pt2");
+			if (pt1 && pt2) {
+				window.location.href = `mailto:${pt1}@${pt2}`;
+			}
+		});
+	});
 </script>
