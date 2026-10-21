@@ -6,6 +6,7 @@ interface Props {
 	title: string;
 	description: string;
 	photoAlt: string;
+	intro?: string;
 	cvLabel?: string;
 	contactDescription?: string;
 	ctaText?: string;
@@ -17,6 +18,7 @@ const {
 	title,
 	description,
 	photoAlt,
+	intro,
 	cvLabel = "View CV",
 	contactDescription,
 	ctaText = "Say Hello",
@@ -45,8 +47,11 @@ const [user, domain] = email.split("@");
 			</div>
 		</div>
 		<div class="about-text">
-			<p class="about-bio">{description}</p>
-			<SocialLinks cvLabel={cvLabel} lang={lang} />
+			<div class="about-copy">
+				{intro && <p class="about-intro">{intro}</p>}
+				<p class="about-bio">{description}</p>
+			</div>
+			<SocialLinks cvLabel={cvLabel} lang={lang} email={email} />
 		</div>
 	</div>
 
@@ -73,7 +78,7 @@ const [user, domain] = email.split("@");
 	)}
 
 	{ctaText && (
-		<div class="contact-cta action-btn" data-pt1={user} data-pt2={domain}>
+		<div class="contact-cta email-btn" data-pt1={user} data-pt2={domain}>
 			{ctaText}
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -231,6 +236,20 @@ const [user, domain] = email.split("@");
 		gap: 1.5rem;
 	}
 
+	.about-copy {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.about-intro {
+		font-size: 1.1rem;
+		font-weight: 700;
+		line-height: 1.5;
+		color: var(--text-main);
+		margin: 0;
+	}
+
 	.about-bio {
 		font-size: 1.05rem;
 		line-height: 1.8;
@@ -317,6 +336,7 @@ const [user, domain] = email.split("@");
 			grid-template-columns: 1fr;
 			text-align: center;
 			padding: 20px;
+			border-radius: 20px;
 		}
 
 		.about-photo-wrapper {
@@ -351,9 +371,9 @@ const [user, domain] = email.split("@");
 		observer.observe(contactMeSection);
 	}
 
-	// Action button logic
-	const actionBtns = document.querySelectorAll(".action-btn");
-	actionBtns.forEach((btn) => {
+	// Email button logic
+	const emailBtns = document.querySelectorAll(".email-btn");
+	emailBtns.forEach((btn) => {
 		btn.addEventListener("click", (e) => {
 			e.preventDefault();
 			const pt1 = btn.getAttribute("data-pt1");

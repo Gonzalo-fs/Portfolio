@@ -8,9 +8,16 @@ const { items } = Astro.props;
 
 <div class="marquee-container">
 	<div class="marquee-content">
-		{items.map((item) => (
-			<span class="marquee-item">• {item} •</span>
-		))}
+		<div class="marquee-group">
+			{items.map((item) => (
+				<span class="marquee-item">• {item} •</span>
+			))}
+		</div>
+		<div class="marquee-group" aria-hidden="true">
+			{items.map((item) => (
+				<span class="marquee-item">• {item} •</span>
+			))}
+		</div>
 	</div>
 </div>
 
@@ -34,9 +41,17 @@ const { items } = Astro.props;
 
 	.marquee-content {
 		display: flex;
-		gap: 4rem;
-		white-space: nowrap;
+		width: max-content;
+		flex-shrink: 0;
 		animation: scrollText 20s linear infinite;
+		will-change: transform;
+	}
+
+	.marquee-group {
+		display: flex;
+		gap: 4rem;
+		padding-right: 4rem;
+		flex-shrink: 0;
 	}
 
 	.marquee-item {
@@ -44,6 +59,7 @@ const { items } = Astro.props;
 		font-size: 3rem;
 		color: rgba(255, 255, 255, 0.1);
 		-webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+		flex-shrink: 0;
 	}
 
 	@keyframes scrollText {
@@ -55,12 +71,3 @@ const { items } = Astro.props;
 		}
 	}
 </style>
-
-<script>
-	// Duplicar contenido del marquee para que sea infinito
-	const marqueeContent = document.querySelector(".marquee-content");
-	if (marqueeContent) {
-		const items = marqueeContent.innerHTML;
-		marqueeContent.innerHTML = items + items;
-	}
-</script>

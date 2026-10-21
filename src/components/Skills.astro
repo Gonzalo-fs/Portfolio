@@ -194,11 +194,6 @@ const {
 <script>
 	function initAccordion() {
 		const subcategories = document.querySelectorAll<HTMLElement>('.subcategory');
-		const DESKTOP_BREAKPOINT = 768;
-
-		function isDesktop(): boolean {
-			return window.innerWidth >= DESKTOP_BREAKPOINT;
-		}
 
 		function openSubcategory(subcategory: HTMLElement) {
 			const content = subcategory.querySelector<HTMLElement>('.subcategory-content');
@@ -212,8 +207,7 @@ const {
 			content.style.height = '0px';
 			content.offsetHeight; // reflow
 
-			const scrollHeight = content.scrollHeight;
-			content.style.height = scrollHeight + 'px';
+			content.style.height = content.scrollHeight + 'px';
 
 			// Limpiar el height después de la transición
 			content.addEventListener('transitionend', function handler() {
@@ -232,73 +226,74 @@ const {
 			subcategory.classList.remove('open');
 			title.setAttribute('aria-expanded', 'false');
 
-			// Primero establecer la altura actual para la transición
-			const currentHeight = content.scrollHeight;
-			content.style.height = currentHeight + 'px';
-
-			// Forzar reflow
+			// Fijar la altura actual para poder animar hasta 0
+			content.style.height = content.scrollHeight + 'px';
 			content.offsetHeight; // reflow
 
-			// Luego animar a 0
 			content.style.height = '0px';
 
 			content.addEventListener('transitionend', function handler() {
 				content.style.height = '0px';
 				content.removeEventListener('transitionend', handler);
+
+				// Si ya no queda ninguna abierta, volvemos a igualar las tarjetas.
+				if (!document.querySelector('.subcategory.open')) {
+					equalizeCollapsedCards();
+				}
 			});
 		}
 
-		function toggleSubcategory(subcategory: HTMLElement) {
-			if (isDesktop()) return;
+		// Iguala la altura de las tarjetas cuando todo está plegado,
+		// aplicando min-height solo a la que quedaría más corta.
+		function equalizeCollapsedCards() {
+			const cards = Array.from(document.querySelectorAll<HTMLElement>('.skills-card'));
 
-			if (subcategory.classList.contains('open')) {
-				closeSubcategory(subcategory);
-			} else {
-				openSubcategory(subcategory);
+			// En móvil cada tarjeta ocupa su propia fila: no hay que igualar nada.
+			if (window.innerWidth < 768) {
+				cards.forEach((card) => (card.style.minHeight = ''));
+				return;
 			}
+
+			// No medir mientras haya una categoría abierta.
+			if (document.querySelector('.subcategory.open')) return;
+
+			// Limpiar para medir la altura natural real de cada tarjeta.
+			cards.forEach((card) => (card.style.minHeight = ''));
+			void cards[0]?.offsetHeight; // reflow
+
+			const heights = cards.map((card) => card.getBoundingClientRect().height);
+			const maxHeight = Math.max(...heights);
+
+			cards.forEach((card, index) => {
+				card.style.minHeight = heights[index] < maxHeight ? `${maxHeight}px` : '';
+			});
 		}
 
-		// Inicializar
 		subcategories.forEach((subcategory) => {
 			const title = subcategory.querySelector<HTMLButtonElement>('.subcategory-title');
-			const content = subcategory.querySelector<HTMLElement>('.subcategory-content');
-			if (!title || !content) return;
+			if (!title) return;
 
-			if (isDesktop()) {
-				subcategory.classList.add('open');
-				title.setAttribute('aria-expanded', 'true');
-				content.style.height = 'auto';
-			} else {
-				subcategory.classList.remove('open');
-				title.setAttribute('aria-expanded', 'false');
-				content.style.height = '0px';
-			}
-
-			title.addEventListener('click', () => toggleSubcategory(subcategory));
+			// El estado plegado inicial ya lo definen el HTML (aria-expanded="false")
+			// y el CSS (height: 0), sin duplicarlo en JavaScript.
+			title.addEventListener('click', () => {
+				if (subcategory.classList.contains('open')) {
+					closeSubcategory(subcategory);
+				} else {
+					openSubcategory(subcategory);
+				}
+			});
 		});
 
-		// Manejar resize
+		equalizeCollapsedCards();
+
 		let resizeTimeout: number | undefined;
 		window.addEventListener('resize', () => {
-			clearTimeout(resizeTimeout);
-			resizeTimeout = window.setTimeout(() => {
-				subcategories.forEach((subcategory) => {
-					const content = subcategory.querySelector<HTMLElement>('.subcategory-content');
-					const title = subcategory.querySelector<HTMLButtonElement>('.subcategory-title');
-					if (!content || !title) return;
-
-					if (isDesktop()) {
-						subcategory.classList.add('open');
-						title.setAttribute('aria-expanded', 'true');
-						content.style.height = 'auto';
-					} else {
-						if (!subcategory.classList.contains('open')) {
-							content.style.height = '0px';
-						}
-					}
-				});
-			}, 150);
+			window.clearTimeout(resizeTimeout);
+			resizeTimeout = window.setTimeout(equalizeCollapsedCards, 150);
 		});
+
+		// Recalcular cuando terminen de cargar las fuentes.
+		document.fonts?.ready.then(equalizeCollapsedCards);
 	}
 
 	if (document.readyState === 'loading') {
@@ -369,52 +364,12 @@ const {
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: 2rem;
+		align-items: start;
 	}
 
 	@media (min-width: 768px) {
 		.skills-grid {
 			grid-template-columns: repeat(2, 1fr);
-		}
-
-		.subcategories-wrapper {
-			gap: 1.5rem;
-		}
-
-		.subcategory {
-			border: none;
-			background: transparent;
-			border-radius: 0;
-			overflow: visible;
-		}
-
-		.subcategory:hover {
-			border-color: transparent;
-			background: transparent;
-		}
-
-		.subcategory-title {
-			padding: 0;
-			margin-bottom: 0.8rem;
-			cursor: default;
-			pointer-events: none;
-		}
-
-		.subcategory-title:hover {
-			background: transparent;
-		}
-
-		.chevron-icon {
-			display: none;
-		}
-
-		.subcategory-content {
-			display: block !important;
-			height: auto !important;
-			overflow: visible;
-		}
-
-		.subcategory-content .tags-container {
-			padding: 0;
 		}
 	}
 

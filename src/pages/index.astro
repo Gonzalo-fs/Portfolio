@@ -6,13 +6,14 @@ import Marquee from "../components/Marquee.astro";
 import ContactMe from "../components/ContactMe.astro";
 import Timeline from "../components/Timeline.astro";
 import Skills from "../components/Skills.astro";
+import Achievements from "../components/Achievements.astro";
 ---
 
 <Layout currentLanguage="en">
 	<BackgroundEffects />
 
 	<Hero
-		tag="PORTFOLIO 2026 — ALPHA V.0.9"
+		tag="PORTFOLIO 2026 — ALPHA V.0.10"
 		title="GONZALO"
 		titleSuffix="FS"
 		description="Full-Stack Engineer with 5+ years of experience."
@@ -22,10 +23,11 @@ import Skills from "../components/Skills.astro";
 
 	<ContactMe
 		title="Let's connect"
-		description="With 5+ years of experience, I deeply understand the core of software engineering and problem-solving. I can take full ownership of a problem, developing and deploying production-ready solutions. Today, as an AI-augmented Full-Stack Engineer, I work as the orchestrator and reviewer of AI agents, ensuring high-quality secure code and accelerating end-to-end delivery."
+		intro="Hello! I'm Gonzalo, a Full-Stack Engineer based in Valencia, Spain."
+		description="With over 5 years of experience building end-to-end web applications. I thrive in high-autonomy environments where I can take complete ownership of features from concept to production. My primary stack is Laravel and Vue, but as an AI-augmented engineer with strong fundamentals, I can adapt quickly to whatever tech stack the project demands."
 		photoAlt="Gonzalo Fontana Santibáñez"
-		contactDescription="I'm currently open to new opportunities. Whether you have a question, a project in mind, or just want to say hi, I'll try my best to get back to you!"
-		ctaText="Say Hello"
+		contactDescription="I'm currently open to new opportunities. Whether you have a question, a project in mind, or just want to say hi, contact me and I'll get back to you!"
+		ctaText="Say Hello!"
 		email="contact@gonzalofs.com"
 		lang="en"
 		cvLabel="View CV"
@@ -35,51 +37,66 @@ import Skills from "../components/Skills.astro";
 		title="SKILLS"
 		legendText="Areas of deep expertise"
 		techStackTitle="Tech Stack"
-		techStackDesc="Main languages, frameworks, and tools."
+		techStackDesc="Main languages, frameworks, and technologies."
 		techStackSubcategories={[
 			{
 				title: "Backend",
 				skills: [
-					{ name: "PHP", isExpert: true },
 					{ name: "Laravel", isExpert: true },
-					{ name: "Eloquent ORM", isExpert: true },
-					{ name: "MySQL / MariaDB", isExpert: true },
-					{ name: "Livewire" },
+					{ name: "PHP", isExpert: true },
 					{ name: "RESTful APIs", isExpert: true },
+					{ name: "Eloquent ORM", isExpert: true },
+					{ name: "MySQL", isExpert: true },
+					{ name: "MariaDB", isExpert: true },
+					{ name: "Livewire" }
 				]
 			},
 			{
 				title: "Frontend",
 				skills: [
+					{ name: "Vue.js", isExpert: true },
 					{ name: "JavaScript", isExpert: true },
-					{ name: "Vue.js / Nuxt.js", isExpert: true },
+					{ name: "Nuxt.js", isExpert: true },
 					{ name: "Astro" },
 					{ name: "Inertia.js" },
 					{ name: "Tailwind CSS" },
-					{ name: "HTML5 / CSS3", isExpert: true },
+					{ name: "Vuetify" },
+					{ name: "HTML5", isExpert: true },
+					{ name: "CSS3", isExpert: true },
 					{ name: "jQuery", isExpert: true }
 				]
 			},
 			{
 				title: "AI",
 				skills: [
-					{ name: "LLM Orchestration", isExpert: true },
-					{ name: "MCPs & AI Skills", isExpert: true },
-					{ name: "GitHub Copilot"},
-					{ name: "Antigravity" },
 					{ name: "Cursor" },
+					{ name: "GitHub Copilot" },
 					{ name: "OpenCode" },
+					{ name: "Antigravity" },
 					{ name: "Codex" },
+					{ name: "LLM Orchestration & Routing", isExpert: true },
+					{ name: "MCPs & AI Skills", isExpert: true }
 				]
 			},
 			{
-				title: "Tools",
+				title: "Testing & Security",
 				skills: [
-					{ name: "Git / GitHub / Bitbucket", isExpert: true },
+					{ name: "PHPUnit", isExpert: true },
+					{ name: "AI-Driven Test Automation" },
+					{ name: "Snyk" },
+					{ name: "Aikido" },
+					{ name: "Cybersecurity" },
+					{ name: "OWASP Top 10" }
+				]
+			},
+			{
+				title: "DevOps",
+				skills: [
+					{ name: "Git", isExpert: true },
+					{ name: "CI/CD with GitHub Actions" },
 					{ name: "Docker" },
-					{ name: "Jira", isExpert: true },
-					{ name: "HubSpot" },
-					{ name: "CMS (PrestaShop, WordPress)" }
+					{ name: "Sentry" },
+					{ name: "DNS & Domain Management" }
 				]
 			}
 		]}
@@ -89,35 +106,30 @@ import Skills from "../components/Skills.astro";
 			{
 				title: "Methodologies",
 				skills: [
-					{ name: "Agile (Scrum / Kanban)", isExpert: true },
-					{ name: "Clean Code / SOLID", isExpert: true },
+					{ name: "Agile (Scrum & Kanban)", isExpert: true },
+					{ name: "Clean Code", isExpert: true },
+					{ name: "SOLID", isExpert: true },
 					{ name: "Object-Oriented Programming", isExpert: true },
-					{ name: "Spec-Driven Development", isExpert: true },
 					{ name: "Domain-Driven Design" },
-					{ name: "Test-Driven Development" }
+					{ name: "Spec-Driven Development (SDD)", isExpert: true }
 				]
 			},
 			{
-				title: "Infrastructure",
+				title: "Tools",
 				skills: [
-					{ name: "Web Hosting" },
-					{ name: "DNS & Domain Management" },
-					{ name: "Cybersecurity Fundamentals" }
-				]
-			},
-			{
-				title: "Web Design",
-				skills: [
-					{ name: "UI/UX Design", isExpert: true },
-					{ name: "Digital Marketing" },
-					{ name: "SEO" }
+					{ name: "Jira", isExpert: true },
+					{ name: "Figma" },
+					{ name: "VS Code" },
+					{ name: "HubSpot" },
+					{ name: "WordPress" },
+					{ name: "PrestaShop" }
 				]
 			},
 			{
 				title: "Languages",
 				skills: [
-					{ name: "Spanish (Native)", isExpert: true },
-					{ name: "English (C1)", isExpert: true }
+					{ name: "English (Advanced - C1)", isExpert: true },
+					{ name: "Spanish (Native)", isExpert: true }
 				]
 			}
 		]}
@@ -148,7 +160,7 @@ import Skills from "../components/Skills.astro";
 				period: "2022 - 2024",
 				role: "Onboarding Lead",
 				company: "tugesto",
-				desc: "Led technical onboarding for +25 new hires, scaling the team from 12 to 30 developers, setting up clean code standards and SOLID principles across the department. While I still shipped features as a developer.",
+				desc: "Led technical onboarding for +25 new hires, helping scale the engineering team, setting up clean code standards and SOLID principles across the department. While I still shipped features as a developer.",
 			},
 			{
 				period: "2021 - 2022",
@@ -174,6 +186,55 @@ import Skills from "../components/Skills.astro";
 				company: "IES Camp de Morvedre",
 				desc: "Vocational Training in microcomputer systems, hardware, and local networks.",
 			},
+		]}
+	/>
+
+	<Achievements
+		title="ACHIEVEMENTS"
+		stats={[
+			{ value: "+25", label: "Developers onboarded" },
+			{ value: "+13", label: "Projects delivered" },
+			{ value: "4", label: "Projects as Product Owner" },
+			{ value: "+40%", label: "Coding speed with AI" },
+			{ value: "-50%", label: "Security risks reduced" }
+		]}
+		achievements={[
+			{
+				title: "Onboarding & Team Scaling",
+				company: "tugesto · 2022 - 2024",
+				description: "Led technical onboarding for +25 hires, setting clean-code and SOLID standards across the department.",
+				icon: "users"
+			},
+			{
+				title: "Product Ownership",
+				company: "tugesto · 2024 - 2025",
+				description: "Delivered +13 projects and took full ownership of 4 of them — private APIs and the public website — building the original Vue.js solution alongside UI/UX and Marketing.",
+				icon: "briefcase"
+			},
+			{
+				title: "AI Integration Leadership",
+				company: "tugesto · 2025 - Present",
+				description: "Drove the team's shift to AI tooling with Spec-Driven Development, custom Skills and MCPs, accelerating coding speed by an estimated 40%.",
+				icon: "cpu"
+			},
+			{
+				title: "Legacy Modernization",
+				company: "tugesto · 2021 - 2025",
+				description: "Migrated a legacy PHP project to Laravel 10 and rebuilt the pricing configurator from scratch, improving performance and reducing security risks by 50%.",
+				icon: "refresh"
+			},
+			{
+				title: "Acquisition by VISMA",
+				company: "tugesto · 2024 - 2025",
+				description: "Partnered with the CTO in technical meetings in English to present our architecture to VISMA executives, backing the company's acquisition.",
+				icon: "building"
+			},
+			{
+				title: "AI Certifications",
+				company: "OpenAI & Anthropic · 2026",
+				description: "Earned the AI Fluency (Anthropic) and AI Agents & Workflows (OpenAI) certifications, formalizing the AI methodology now used by the team.",
+				icon: "award"
+			}
 		]}
 	/>
 
